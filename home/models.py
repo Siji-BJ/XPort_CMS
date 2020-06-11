@@ -18,18 +18,10 @@ class HomePage(Page):
         related_name='+',
         help_text='Homepage image'
     )
-    promo_image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        help_text='Promo image'
-    )
     vision_title = models.CharField(
         null=True,
         blank=True,
-        max_length=255,
+        max_length=100,
         help_text='Vision'
     )
     vision_image = models.ForeignKey(
@@ -43,14 +35,15 @@ class HomePage(Page):
     vision_text = RichTextField(
         null=True,
         blank=True,
-        help_text='Write some promotional copy'
+        max_length=400,
+        help_text='Write vision'
     )
     content_panels = Page.content_panels + [
-        ImageChooserPanel([
-            'image'],heading="Home Page"),
+        ImageChooserPanel(
+            'image',heading="Home Page"),
         MultiFieldPanel([
             FieldPanel('vision_title', classname="full"),
-            ImageChooserPanel('image'),
+            ImageChooserPanel('vision_image'),
             FieldPanel('vision_text', classname="full"),
         ], heading="Vision section")
     ]
