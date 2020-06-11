@@ -20,10 +20,11 @@
                     <div class="row">
                         <div class="col-md-6 pt-24 pl-0 pl-15-sm pr-5">
                             <div class="media">
-                                <img class="app-d-none-xs" src="assets/Images/Vision.png" alt="...">
+                                <figure class="figure text-center">{% image page.vision_image fill-200x200-c100 %}</figure>
+                               
                                 <div class="media-body">
-                                  <h5 class="mt-0">Vision</h5>
-                                  <p>To be the best maritime single-window solution on the cloud for ports - easy to deploy, integrate and transition - harnessing the power of digital technologies.</p>
+                                  <h5 class="mt-0">{{page.vision_title}}</h5>
+                                  <p>{{page.vision_text|safe}}</p>
                                 </div>
                               </div>
                         </div>
