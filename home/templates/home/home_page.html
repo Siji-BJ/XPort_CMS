@@ -6,30 +6,34 @@
 
        <!-- Masthead-->
        {% image page.image max-5000x800 as image %}
-        <header class="masthead" style="background-image:url('{{ image.url }}')">
-            
-            <div class="container-fluid hero h-100 " >
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">{{ page.title }}</h1>
-                        <hr class="divider my-4" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-                    </div>
-                </div>
-            </div>
+        <header class="masthead" style="background-image:url('{{ image.url }}')">               
+                    <div class="yellow ">
+                        <div class="white">
+                            <h1 class="text-dark">{{ page.title }}</h1>                        
+                        </div>
+                    </div>             
         </header>
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">We've got what you need!</h2>
-                        <hr class="divider light my-4" />
-                        <p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+        <!-- Vision and mission-->
+        <section class="mission-block" id="content">
+            <div class="container mission-block-container">
+                <div class="mission-block-child">
+                    <div class="row">
+                        <div class="col-md-6 pt-24 pl-0 pl-15-sm pr-5">
+                            <div class="media">
+                                <img class="app-d-none-xs" src="assets/Images/Vision.png" alt="...">
+                                <div class="media-body">
+                                  <h5 class="mt-0">Vision</h5>
+                                  <p>To be the best maritime single-window solution on the cloud for ports - easy to deploy, integrate and transition - harnessing the power of digital technologies.</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6 pt-45 pt-32-xs">
+                            <h5 class="mt-0">Mission</h5>
+                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt=""> Elevate xPort® customers to global performance standards.</span></p>
+                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt="">To work hand in hand with the port management team to deliver measurable value and competitive advantages.</span></p>
+                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt="">To ease the flow of information to provide transparency and visibility to all the stakeholders</span></p>
+                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt="">To constantly improve business performance using analytics</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
