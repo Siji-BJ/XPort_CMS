@@ -39,10 +39,10 @@ class HomePage(Page):
         max_length=400,
         help_text='Write vision'
     )
-    mission_title = RichTextField(
+    mission_title = models.CharField(
         null=True,
         blank=True,
-        max_length=400,
+        max_length=250,
         help_text='Mission title'
     )
     content_panels = Page.content_panels + [

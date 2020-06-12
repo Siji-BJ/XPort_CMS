@@ -28,12 +28,12 @@
                                 </div>
                               </div>
                         </div>
+                        
                         <div class="col-md-6 pt-45 pt-32-xs">
-                            <h5 class="mt-0">Mission</h5>
-                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt=""> Elevate xPort® customers to global performance standards.</span></p>
-                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt="">To work hand in hand with the port management team to deliver measurable value and competitive advantages.</span></p>
-                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt="">To ease the flow of information to provide transparency and visibility to all the stakeholders</span></p>
-                                  <p><span class="app-mission-block-point-item"><img class="mr-3" src="assets/Images/tick.png" alt="">To constantly improve business performance using analytics</span></p>
+                            <h5 class="mt-0">{{ page.mission_title }}</h5>
+                            {% for missions in page.missions.all%}
+                                <p><span class="app-mission-block-point-item">{% image missions.list_label fill-320x240 %} {{missions.mission}}</span></p>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
