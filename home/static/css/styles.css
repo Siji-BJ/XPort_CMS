@@ -10282,10 +10282,6 @@ header.masthead h1 {
   }
 }
 
-.mission-block .mission-block-child p .app-mission-block-point-item img {
-  margin-top: 7px;
-}
-
 @media (max-width: 991px) {
   .mission-block .mission-block-child {
     padding-top: 70px;

@@ -30,9 +30,9 @@
                         </div>
                         
                         <div class="col-md-6 pt-45 pt-32-xs">
-                            <h5 class="mt-0">{{ page.mission_title }}</h5>
+                            <h5 class="mt-0">{{page.mission_title}}</h5>
                             {% for missions in page.missions.all%}
-                                <p><span class="app-mission-block-point-item">{% image missions.list_label fill-320x240 %} {{missions.mission}}</span></p>
+                                <p><span class="app-mission-block-point-item">{% image missions.list_label fill-320x240 %}<span class="ml-3">{{missions.mission}}</span> </span></p>
                             {% endfor %}
                         </div>
                     </div>
