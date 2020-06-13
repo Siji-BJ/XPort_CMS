@@ -10405,9 +10405,10 @@ header.masthead h1 {
 
 .industry-block .app-objective-img {
   position: absolute;
-  right: 0px;
-  top: 14px;
+  bottom: 17px;
+  left: -176px;
 }
+
 
 @media (max-width: 991px) {
   .industry-block .app-objective-img {

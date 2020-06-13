@@ -39,61 +39,28 @@
                 </div>
             </div>
         </section>
-        <!-- Services-->
-        <section class="industry-block" id="industry">
+        <!-- Objectives Section-->
+        {% image page.objectives_background_image max-5000x800 as objectives_background_image %}
+        <section class="industry-block" id="industry" style="background-image:url('{{ objectives_background_image.url }}')">
             <div class="container">
-                <h4 class="main-title">Objectives</h4>
+                <h4 class="main-title">{{page.objectives_title}}</h4>
                 <div class="row">
                     <div class="col-md-12 col-lg-8">
                         <div class="row">
-                            <div class="col-md-6 pr-5">
-                                <div class="media">
-                                    <div class="media-img"><img src="assets/Images/port.png" alt="..."></div>
-                                    <div class="media-body">
-                                      <p>Efficient & effective logistics  for ports</p>
+                            {% for item in page.objectives.all %}
+                                <div class="col-md-6 pr-5">
+                                    <div class="media">
+                                        <div class="media-img">{%image item.objective_image max-100x100 %}</div>
+                                        <div class="media-body">
+                                            <p>{{item.objective_text}}</p>
+                                        </div>
                                     </div>
-                                  </div>
-                            </div>
-                            <div class="col-md-6 pr-5">
-                                <div class="media">
-                                    <div class="media-img"><img src="assets/Images/smartphone.png" alt="..."></div>
-                                    <div class="media-body">
-                                      <p>Be a one-stop solution provider</p>
-                                    </div>
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 pr-5">
-                                <div class="media">
-                                    <div class="media-img"><img src="assets/Images/lightbulb.png" alt="..."></div>
-                                    <div class="media-body">
-                                      <p>Be cognizant of the business challenges of tomorrow and deliver future-proof solutions</p>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="col-md-6 pr-5">
-                                <div class="media">
-                                    <div class="media-img"><img src="assets/Images/process.png" alt="..."></div>
-                                    <div class="media-body">
-                                      <p>Combine the change in processes with the process of change</p>
-                                    </div>
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 pr-5">
-                                <div class="media">
-                                    <div class="media-img"><img src="assets/Images/computer.png" alt="..."></div>
-                                    <div class="media-body">
-                                      <p>Bridge the gap between business requirements and technology opportunities</p>
-                                    </div>
-                                  </div>
-                            </div>
+                                </div>
+                            {%endfor%}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 app-position-inherit">
-                        <img class="app-objective-img" src="assets/Images/objective.png">
+                        <div class="app-objective-img"> {% image page.objectives_side_image fill-2600x2200 %}</div></div>
                     </div>
                 </div>
             </div>
