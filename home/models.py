@@ -47,6 +47,14 @@ class HomePage(Page):
         max_length=250,
         help_text='Mission title'
     )
+    mission_list_label = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='List label'
+    )
     objectives_title = models.CharField(
         blank=False,
         default='Objectives',
@@ -97,6 +105,46 @@ class HomePage(Page):
         related_name='+',
         help_text='Arrow displayed inside the contact us button '
     )
+    primary_support_item_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Image diplayed in the left sideof support section '
+    )
+    support_title = models.CharField(
+        blank=False,
+        default='24X7 Support',
+        max_length=250
+    )
+    support_text = models.CharField(
+        blank=False,
+        default=' ',
+        max_length=500
+    )
+    background_image_of_support = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Background image of support Text '
+    )
+    download_image_for_brochure = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Download image displayed near brochure '
+    )
+    download_text_with_brochure = models.CharField(
+        blank=True,
+        default='Click here to download',
+        max_length=250
+    )
+
     content_panels = Page.content_panels + [
         ImageChooserPanel(
             'image',heading="Home Page"),
@@ -107,6 +155,7 @@ class HomePage(Page):
         ], heading="Vision section"),
         MultiFieldPanel([
             FieldPanel('mission_title',classname="full"),
+            ImageChooserPanel('mission_list_label',classname='full'),
             InlinePanel('missions',label="Mission"),
         ], heading="Missions"),
         MultiFieldPanel([
@@ -121,28 +170,28 @@ class HomePage(Page):
             FieldPanel('contact_us_button_text',classname='full'),
             ImageChooserPanel('image_inside_contact_us_button',classname='full'),
             InlinePanel('usps',label="USP")
-        ])
+        ],heading="Our USP"),
+        MultiFieldPanel([
+            ImageChooserPanel('primary_support_item_image',classname='full'),
+            ImageChooserPanel('download_image_for_brochure',classname='full'),
+            FieldPanel('download_text_with_brochure',classname='full'),
+            InlinePanel('brochure_list',label = 'Brochure'),
+            ImageChooserPanel('background_image_of_support',classname='full'),
+            FieldPanel('support_title',classname='full'),
+            FieldPanel('support_text',classname='full'),
+        ], heading="Support Details")
         
     ]
 
 
 class Mission(Orderable):
     page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='missions')
-    list_label = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=False,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        help_text='List label'
-    )
     mission = models.CharField(
         blank=False,
         default=' ',
         max_length=250
     )
     panels= [
-        ImageChooserPanel('list_label'),
         FieldPanel('mission')
     ]
 
@@ -177,3 +226,14 @@ class USP(Orderable):
     panels = [
         FieldPanel('usp')
     ]
+
+class Brochure(Orderable):
+    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='brochure_list')
+    brochure_name = models.CharField(
+        blank=False,
+        default=' ',
+        max_length=400
+    ) 
+    panels = [
+        FieldPanel('brochure_name')
+    ]   

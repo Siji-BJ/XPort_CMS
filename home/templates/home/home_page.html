@@ -32,7 +32,7 @@
                         <div class="col-md-6 pt-45 pt-32-xs">
                             <h5 class="mt-0">{{page.mission_title}}</h5>
                             {% for missions in page.missions.all%}
-                                <p><span class="app-mission-block-point-item">{% image missions.list_label fill-320x240 %}<span class="ml-3">{{missions.mission}}</span> </span></p>
+                                <p><span class="app-mission-block-point-item">{% image page.mission_list_label fill-320x240 %}<span class="ml-3">{{missions.mission}}</span> </span></p>
                             {% endfor %}
                         </div>
                     </div>
@@ -66,36 +66,94 @@
             </div>
         </section>
         <!-- USP Section-->
-        <section class="our-usp-block" id="service">
-            <div class="container">
-                <div class="app-our-usp-block-container">
-                    <div class="app-our-usp-left-block">
-                        <h4>Our USP</h4>
-                        <ul>
-                            <li>Maritime Single Window vision for the product framework when the roadmap was laid at inception.</li>
-                            <li>Focused on Enterprises & Transport Sector</li>
-                            <li>Maritime Centre of Excellence in Rotterdam</li>
-                            <li>Domain strength from the best in the maritime world</li>
-                            <li>A Decade & half of Digital Transformation Services Competence, well set in the product team</li>
-                            <li>Extendable Product Framework for Digital Transformation in Ports
-                                With a large digital skills team, ability to customize the solution to suit the local needs and transition quickly</li>
-                        </ul>
-                        <button class="btn btn-primary">
-                            Contact with Us
-                            <img src="assets/Images/arrow.png">
-                        </button>
-                    </div>
-                    <div class="app-our-usp-right-block">
-                        <img src="assets/Images/usp.png">
+        {% if page.usps%}
+            <section class="our-usp-block" id="service">
+                <div class="container">
+                    <div class="app-our-usp-block-container">
+                        <div class="app-our-usp-left-block">
+                            
+                            <h4>{{page.usp_title}}</h4>
+                            <ul>
+                                {% for item in page.usps.all %} 
+                                    <li>{{item.usp}}</li>
+                                {%endfor%}
+                            </ul>
+                            {% if page.contact_us_button_text%}
+                                <button class="btn btn-primary">
+                                    {{page.contact_us_button_text}}
+                                    {%if page.image_inside_contact_us_button%}
+                                        {% image page.image_inside_contact_us_button max-100x100 %}
+                                    {% endif %}    
+                                </button>
+                            {%endif%}    
+                        </div>
+                        {% if page.usp_side_image %} 
+                            <div class="app-our-usp-right-block">
+                                {% image page.usp_side_image max-1200x1200 %}
+                            </div>
+                        {%endif%}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        {%endif%} 
         <!-- Call to action-->
-        <section class="page-section bg-dark text-white">
-            <div class="container text-center">
-                <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-                <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
+        <section class="support-block">
+            <div class="container">
+                <div class="app-support-block-container">
+                    {%image page.primary_support_item_image max-1500x1500 as primary_support_image%}
+                    <div class="app-support-block-item primary" style="background-image:url('{{ primary_support_image.url }}')">
+                        {% if page.brochure_list %}
+                            {%for item in page.brochure_list.all %}
+                                <div class="media">
+                                    {%if page.download_image_for_brochure%}
+                                        <span class="download-arrow-img-holder">{% image page.download_image_for_brochure fill-200x200%}</span>
+                                    {%endif%}
+                                    <div class="media-body">
+                                        <h5 class="mt-0">{{page.download_text_with_brochure}} </h5>
+                                        <p>{{item.brochure_name}}</p>
+                                    </div>
+                                </div>
+                            {%endfor%}    
+                        {%endif%}
+                    </div>
+                    {% image page.background_image_of_support max-1200x1200 as support_bg_image %}
+                    <div class="app-support-block-item secondary" style="background-image:url('{{ support_bg_image.url }}')">
+                        <h3>24X7 Support</h3>
+                        <h6>With our focus on making ports most efficient with xPort® and xPort MSW, we offer product-led consulting, product sales and ongoing support for any port stakeholder 24X7, all year round.</h6>
+                    </div>
+                    <div class="app-support-block-item tertiary">
+                        <div class="contact-holder">
+                            <h4>Contact Us</h4>
+                            <h2 class="contact-head">Our team is excited to get in 
+                                touch with you</h2>
+                            <form>
+                                <div class="form-group">
+                                        <input type="text" placeholder="Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <input type="password" class="form-control" id="inputPassword"
+                                            placeholder="Phone Number">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="inputPassword"
+                                    placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                        <input type="password" class="form-control" id="inputPassword"
+                                            placeholder="Subject">
+                                </div>
+                                <div class="form-group">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#successModal" type="button">Send Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Contact-->
