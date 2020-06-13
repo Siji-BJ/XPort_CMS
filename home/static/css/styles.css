@@ -10485,3 +10485,114 @@ header.masthead h1 {
     width: 100%;
   }
 }
+.our-usp-block .app-our-usp-block-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  top: -150px;
+  background: #fff;
+}
+
+@media (max-width: 991px) {
+  .our-usp-block .app-our-usp-block-container {
+    top: 0;
+  }
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-left-block {
+  padding: 50px 54px 56px 62px;
+}
+
+@media (max-width: 991px) {
+  .our-usp-block .app-our-usp-block-container .app-our-usp-left-block {
+    padding: 50px 0;
+  }
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-left-block h4 {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 38px;
+  color: #333944;
+  margin-bottom: 31px;
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-left-block .btn {
+  min-width: 283px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 28px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+  .our-usp-block .app-our-usp-block-container .app-our-usp-left-block .btn {
+    min-width: 230px;
+    padding: 0 15px;
+  }
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-left-block ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-left-block ul li {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: #333944;
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 27px;
+}
+
+@media (max-width: 991px) {
+  .our-usp-block .app-our-usp-block-container .app-our-usp-left-block ul li {
+    margin-bottom: 31px;
+  }
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-left-block ul li::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background: #FFBA03;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 8px;
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-left-block ul li:last-child {
+  margin-bottom: 0;
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-right-block {
+  width: 830px;
+}
+
+@media (max-width: 991px) {
+  .our-usp-block .app-our-usp-block-container .app-our-usp-right-block {
+    display: none;
+  }
+}
+
+.our-usp-block .app-our-usp-block-container .app-our-usp-right-block img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

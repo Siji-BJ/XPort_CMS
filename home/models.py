@@ -69,6 +69,34 @@ class HomePage(Page):
         related_name='+',
         help_text='Image displayed in the right side of objectives section'
     )
+    usp_title = models.CharField(
+        blank=False,
+        default='Our USP',
+        max_length=250,
+        help_text='USP section title'
+    )
+    usp_side_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Image to be displayed inside USP secton'
+    )
+    contact_us_button_text = models.CharField(
+        blank=True,
+        default='Contact with Us',
+        max_length=250,
+        help_text='Text displayed inside the contact us button'
+        )
+    image_inside_contact_us_button = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Arrow displayed inside the contact us button '
+    )
     content_panels = Page.content_panels + [
         ImageChooserPanel(
             'image',heading="Home Page"),
@@ -86,9 +114,18 @@ class HomePage(Page):
             ImageChooserPanel('objectives_background_image',classname="full"),
             ImageChooserPanel('objectives_side_image',classname="full"),
             InlinePanel('objectives',label="Objective"),
-        ], heading="Objectives")
+        ], heading="Objectives"),
+        MultiFieldPanel([
+            FieldPanel('usp_title',classname='full'),
+            ImageChooserPanel('usp_side_image',classname='full'),
+            FieldPanel('contact_us_button_text',classname='full'),
+            ImageChooserPanel('image_inside_contact_us_button',classname='full'),
+            InlinePanel('usps',label="USP")
+        ])
         
     ]
+
+
 class Mission(Orderable):
     page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='missions')
     list_label = models.ForeignKey(
@@ -108,6 +145,8 @@ class Mission(Orderable):
         ImageChooserPanel('list_label'),
         FieldPanel('mission')
     ]
+
+
 class Objective(Orderable):
     page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='objectives')
     objective_text = models.CharField(
@@ -126,4 +165,15 @@ class Objective(Orderable):
     panels = [
         FieldPanel('objective_text'),
         ImageChooserPanel('objective_image')
+    ]
+
+class USP(Orderable):
+    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name='usps')
+    usp= models.CharField(
+        blank=False,
+        default=' ',
+        max_length=250
+    )
+    panels = [
+        FieldPanel('usp')
     ]
