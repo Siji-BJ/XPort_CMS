@@ -1,10 +1,53 @@
 {% extends "base.html" %}
 {% load wagtailimages_tags wagtailcore_tags %}
 {% block content %}
-    {%  image page.header_image fill-2200x2200 as image %}
+    {%  image page.header_image max-1200x1200 as image %}
     <div class="app-l-main-headings cp-bg" style="background-image: url(' {{ image.url }} ')">
         <span>
             {{page.title}}
         </span>
     </div>
+    <div class="app-l-static-pages app-l-about-us mb-5">
+        <div class="container-main-xport">
+            <div class="container-fluid p-0 m-0">
+                <section class="app-l-about-us app-l-consultants-partners-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                {{page.consultans_Partners_body|richtext}}
+                            </div>
+                            <div class="col-lg-6">
+                                <img class="coe-img w-auto" src="assets/Images/ConsultantsPartners.png">
+                            </div>
+                        </div>
+
+                        <div class="row flex__direction app-l-idp-prg">
+                            <div class="col-lg-6">
+                                <img class="coe-img w-auto" src="assets/Images/IDPProgram.png">
+                            </div>
+                            <div class="col-lg-6">
+                                <h1>IDP Program</h1>
+                                <p>Our Maritime Centre of Excellence has been studying a variety of PCS initiatives
+                                    from around the world and is trying to analyze the cause for the inertia with
+                                    the vast majority of cases and found that individualized approaches need to be
+                                    taken to make it work and achieve the desired benefits. Being a true
+                                    multi-stakeholder enterprise that ports are, we also believe that customers need
+                                    to be partners in product development, implementation & transition management
+                                    and recognize that through a formal program called IDP.<br><br>
+
+                                    At xPort, we are trying to create the most effective platform for MSW and hence
+                                    use the most modern IT tools to achieve results. But we recognize that
+                                    individual port processes and the interplay of those with the local stakeholders
+                                    might need consideration in the process. Hence, we include the ports as partners
+                                    in our product roadmap and testing program. And we leverage ports from diverse
+                                    geographical regions that have the maturity to partner us to be able to define
+                                    and validate the best practices in various processes. </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
 {% endblock %}  
