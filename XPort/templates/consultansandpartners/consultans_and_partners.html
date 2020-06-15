@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% block content %}
+    {%  image page.header_image fill-2200x2200 as image %}
+    <div class="app-l-main-headings cp-bg" style="background-image: url(' {{ image.url }} ')">
+        <span>
+            {{page.title}}
+        </span>
+    </div>
+{% endblock %}  
