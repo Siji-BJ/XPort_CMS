@@ -2,15 +2,17 @@ from django.db import models
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.models import Page,Orderable
 from modelcluster.fields import ParentalKey
-from wagtail.core.fields import RichTextField
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import (
     FieldPanel,
     InlinePanel,
     MultiFieldPanel,
     StreamFieldPanel,
+    FieldRowPanel,
 )
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 
-class HomePage(Page):
+class HomePage(AbstractEmailForm):
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -93,7 +95,7 @@ class HomePage(Page):
     )
     contact_us_button_text = models.CharField(
         blank=True,
-        default='Contact with Us',
+        default=' ',
         max_length=250,
         help_text='Text displayed inside the contact us button'
         )
@@ -144,8 +146,14 @@ class HomePage(Page):
         default='Click here to download',
         max_length=250
     )
-
-    content_panels = Page.content_panels + [
+    contact_us_title = models.CharField(
+        blank=False,
+        default='CONTACT US',
+        max_length=250
+    )
+    intro =  models.CharField(blank=True,max_length=250)
+    thank_you_text = RichTextField(blank=True)
+    content_panels = AbstractEmailForm.content_panels + [
         ImageChooserPanel(
             'image',heading="Home Page"),
         MultiFieldPanel([
@@ -179,8 +187,20 @@ class HomePage(Page):
             ImageChooserPanel('background_image_of_support',classname='full'),
             FieldPanel('support_title',classname='full'),
             FieldPanel('support_text',classname='full'),
-        ], heading="Support Details")
-        
+        ], heading="Support Details"),
+        MultiFieldPanel([
+            FieldPanel('contact_us_title'),
+            FieldPanel('intro'),
+            InlinePanel('form_fields', label="Form fields"),
+            FieldPanel('thank_you_text', classname="full"),
+            MultiFieldPanel([
+                FieldRowPanel([
+                    FieldPanel('from_address', classname="col6"),
+                    FieldPanel('to_address', classname="col6"),
+                ]),
+                FieldPanel('subject'),
+            ], "Email")
+        ],"Contact Us")    
     ]
 
 
@@ -237,3 +257,6 @@ class Brochure(Orderable):
     panels = [
         FieldPanel('brochure_name')
     ]   
+
+class FormField(AbstractFormField):
+    page = ParentalKey('HomePage', related_name='form_fields', on_delete=models.CASCADE)

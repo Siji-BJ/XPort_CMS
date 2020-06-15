@@ -109,7 +109,9 @@
                                         <span class="download-arrow-img-holder">{% image page.download_image_for_brochure fill-200x200%}</span>
                                     {%endif%}
                                     <div class="media-body">
-                                        <h5 class="mt-0">{{page.download_text_with_brochure}} </h5>
+                                        {%if page.download_text_with_brochure_%}
+                                            <h5 class="mt-0">{{page.download_text_with_brochure}} </h5>
+                                        {%endif%}
                                         <p>{{item.brochure_name}}</p>
                                     </div>
                                 </div>
@@ -121,36 +123,30 @@
                         <h3>24X7 Support</h3>
                         <h6>With our focus on making ports most efficient with xPort® and xPort MSW, we offer product-led consulting, product sales and ongoing support for any port stakeholder 24X7, all year round.</h6>
                     </div>
+                                       
                     <div class="app-support-block-item tertiary">
                         <div class="contact-holder">
-                            <h4>Contact Us</h4>
-                            <h2 class="contact-head">Our team is excited to get in 
-                                touch with you</h2>
-                            <form>
-                                <div class="form-group">
-                                        <input type="text" placeholder="Name" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                        <input type="password" class="form-control" id="inputPassword"
-                                            placeholder="Phone Number">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="inputPassword"
-                                    placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                        <input type="password" class="form-control" id="inputPassword"
-                                            placeholder="Subject">
-                                </div>
-                                <div class="form-group">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
-                                </div>
+                            <h4>{{ page.contact_us_title }}</h4>
+                            <h2 class="contact-head">{{ self.intro|richtext }}</h2>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                {% for field in form.visible_fields %}
+                                    <div class="form-group">
+                                        {{ field.errors }}
+                                        
+                                        <input type="{{ field.field.widget.input_type }}" class="form-control"
+                                                name="{{ field.name }}" id="{{ field.id_for_label }}" 
+                                                {% if field.field.required %}required="required"{% endif %}
+                                                placeholder="{{ field.help_text }}">
+                                        {% comment %}you might want form field for textarea or select etc. just make conditions for those {% endcomment %}
+                                    </div>
+                               {% endfor %}
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#successModal" type="button">Send Now</button>
                                     </div>
                                 </div>
-                            </form>
+                            <!-- </form> -->
                         </div>
                     </div>
                 </div>
