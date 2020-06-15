@@ -5,14 +5,20 @@
 {% block content %}
 
        <!-- Masthead-->
-       {% image page.image max-5000x800 as image %}
-        <header class="masthead" style="background-image:url('{{ image.url }}')">               
-                    <div class="yellow ">
-                        <div class="white">
-                            <h1 class="text-dark">{{ page.title }}</h1>                        
-                        </div>
-                    </div>             
-        </header>
+    <div class="main-banner-container" id="bannerblk">
+        {% image page.image max-5000x800 as image %}
+       <div class="content-block" style="background-image:url('{{ image.url }}')">
+            <div class="container">
+                <div class="banner-caption-holder">
+                    <div class="banner-caption">
+                        <h1>{{ page.title }}</h1>
+                    </div>
+                </div>
+            </div>
+       </div>  
+
+    </div>
+       
         <!-- Vision and mission-->
         <section class="mission-block" id="content">
             <div class="container mission-block-container">
