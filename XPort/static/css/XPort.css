@@ -3336,9 +3336,8 @@ button.slick-prev:hover {
 }
 
 .app-l-about-us {
-  margin: 210px 0 0 0;
+  margin: 360px 0 0 0;
   background: #fff;
-  position: relative;
   z-index: 9;
   padding: 0 0 37px 0;
 }
@@ -3375,10 +3374,9 @@ button.slick-prev:hover {
   line-height: 37px;
 }
 
-.app-l-about-us img {
-  margin-top: 40px;
+/* .app-l-about-us img {
   width: 100%;
-}
+} */
 
 .app-l-about-us .majority-containerized {
   margin-top: 49px;
