@@ -32,6 +32,27 @@ class AboutUsPage(Page):
         on_delete=models.SET_NULL,
         related_name='+',
     )
+    body_title = models.CharField(
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+    body_text_1 = RichTextField(
+        null=True,
+        blank=True,
+    )
+    body_side_text = models.TextField(
+        null=True,
+        blank=True,
+    )
+    body_text_2 = RichTextField(
+        null=True,
+        blank=True,
+    )
+    body_text_3 = RichTextField(
+        null=True,
+        blank=True,
+    )
     
     
     content_panels = Page.content_panels + [    
@@ -42,6 +63,13 @@ class AboutUsPage(Page):
                 FieldPanel('side_text'),
                 ImageChooserPanel('history_image')
             ], heading="History Section"),
+            MultiFieldPanel([              
+                FieldPanel('body_title'),
+                FieldPanel('body_text_1'),
+                FieldPanel('body_text_2'),
+                FieldPanel('body_text_3'),
+                FieldPanel('body_side_text'),
+            ], heading="Body Section"),
           
     ]
 

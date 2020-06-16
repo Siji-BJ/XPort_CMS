@@ -6,8 +6,8 @@
 {% block content %}
 
 <div class="main-wrapper">
-    {% image page.image fill-1920x600 as image %} 
-    <div class="main-banner-container h-auto" id="bannerblk" style="background-image:url('{{ image.url }}')">
+    
+    <div class="main-banner-container h-auto" id="bannerblk">
         <div class="content-block position-relative">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -121,7 +121,8 @@
                     </div>
                 </header>
             </div>
-            <div class="app-l-main-headings about-page-heading-bg">
+            {% image page.image fill-1920x600 as image %} 
+            <div class="app-l-main-headings about-page-heading-bg" style="background-image:url('{{ image.url }}')">
                 <span>{{page.title}}</span>
             </div>
         </div>
