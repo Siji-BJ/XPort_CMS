@@ -3,6 +3,7 @@ from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.admin.edit_handlers import FieldPanel,MultiFieldPanel, InlinePanel
 from wagtail.core.fields import RichTextField
+from modelcluster.fields import ParentalKey
 
 class AboutUsPage(Page):
     image = models.ForeignKey(
@@ -53,6 +54,10 @@ class AboutUsPage(Page):
         null=True,
         blank=True,
     )
+    body_text_4 = RichTextField(
+        null=True,
+        blank=True,
+    )
     
     
     content_panels = Page.content_panels + [    
@@ -69,10 +74,64 @@ class AboutUsPage(Page):
                 FieldPanel('body_text_2'),
                 FieldPanel('body_text_3'),
                 FieldPanel('body_side_text'),
+                InlinePanel('points', label="Points"), 
+                InlinePanel('photo', label = "Images"),
+                FieldPanel('body_text_4'),
             ], heading="Body Section"),
+            InlinePanel('team', label = "Team"),
+
           
     ]
 
+class Points(models.Model):
+    page = ParentalKey(AboutUsPage, on_delete=models.CASCADE, related_name='points')
+    point = models.TextField(
+        null=True,
+        blank=True,
+    )
+    panels = [
+        FieldPanel('point'),
+    ]
+
+class Photo(models.Model):
+    page = ParentalKey(AboutUsPage, on_delete=models.CASCADE, related_name='photo')
+    gallery_image = models.ForeignKey(
+        'wagtailimages.Image', null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='+'
+    )
+    caption = models.TextField(
+        null=True,
+        blank=True,
+    )
+    panels = [
+        ImageChooserPanel('gallery_image'),
+        FieldPanel('caption'),
+    ]
+
+class Team(models.Model):
+    page = ParentalKey(AboutUsPage, on_delete=models.CASCADE, related_name='team')
+    photo = models.ForeignKey(
+        'wagtailimages.Image', null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='+'
+    )
+    name = models.TextField(
+        null=True,
+        blank=True,
+    )
+    designation = models.TextField(
+        null=True,
+        blank=True,
+    )
+    profile = RichTextField(
+        null=True,
+        blank=True,
+    )
+    panels = [
+        ImageChooserPanel('photo'),
+        FieldPanel('name'),
+        FieldPanel('designation'),
+        FieldPanel('profile'),
+    ]
 
 
 # Create your models here.
