@@ -3315,10 +3315,6 @@ button.slick-prev:hover {
   background: #2C2150;
 }
 
-.about-page-heading-bg {
-  background: url(./assets/Images/about-bg.png);
-}
-
 .contact-page-heading-bg {
   background: url(./assets/Images/contact-bg.png);
 }
@@ -3346,7 +3342,7 @@ button.slick-prev:hover {
 .app-l-about-us h1 {
   margin: 56px 0 18px 0;
   padding: 0;
-  color: #4C5564;
+ 
   font-weight: 500;
   font-size: 28px;
   line-height: 38px;

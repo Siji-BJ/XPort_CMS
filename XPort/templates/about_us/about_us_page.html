@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_class %}template-aboutuspage{% endblock %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+
+<div class="main-wrapper">
+    {% image page.image fill-1920x600 as image %} 
+    <div class="main-banner-container h-auto" id="bannerblk" style="background-image:url('{{ image.url }}')">
+        <div class="content-block position-relative">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#"><img src="{% static 'assets/img/portfolio/fullsize/logo.png' %}"></a>
+                    <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown" role="button"
+                        aria-expanded="false" aria-controls="navbarNavDropdown">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse multi-collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav web">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Industry-directions.html">Industry Directions</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#"> About Us</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="operations-management-system.html">xPort Operations Management System</a>
+                                    <a class="dropdown-item" href="maritime-single-window.html">xPort Maritime Single Window</a>
+                                  </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="consultants-partners.html">Consultants & Partners</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html">
+                                <button class="btn btn-primary">
+                                    Contact Us
+                                </button>
+                            </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mobile">
+                            <button class="close-icon" data-toggle="collapse" href="#navbarNavDropdown" role="button"
+                            aria-expanded="false" aria-controls="navbarNavDropdown">
+                                <img src="assets/Images/close-white.png">
+                            </button>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Industry-directions.html">Industry Directions</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#"> About Us</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="operations-management-system.html">xPort Operations Management System</a>
+                                    <a class="dropdown-item" href="maritime-single-window.html">xPort Maritime Single Window</a>
+                                  </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="consultants-partners.html">Consultants & Partners</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html">
+                                <button class="btn btn-primary">
+                                    Contact Us
+                                </button>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <header class="main_h">
+                    <div class="container">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <a class="navbar-brand" href="#"><img src="assets/Images/logo.png"></a>
+                            <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown1"
+                                role="button" aria-expanded="false" aria-controls="navbarNavDropdown1">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse multi-collapse navbar-collapse" id="navbarNavDropdown1">
+                                <ul class="navbar-nav web">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Industry-directions.html">Industry Directions</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#"> About Us</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="operations-management-system.html">xPort Operations Management System</a>
+                                            <a class="dropdown-item" href="maritime-single-window.html">xPort Maritime Single Window</a>
+                                          </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="consultants-partners.html">Consultants & Partners</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="contact.html">
+                                        <button class="btn btn-primary">
+                                            Contact Us
+                                        </button>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+            <div class="app-l-main-headings about-page-heading-bg">
+                <span>{{page.title}}</span>
+            </div>
+        </div>
+    </div>
+    <section class="app-l-about-us">
+        <div class="container">
+            <h1>{{page.history_title}}</h1>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>{{page.main_text|safe}}</p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="bold-text">
+                        {{page.side_text}}
+                        {% image page.history_image fill-800x1000-c500 as image %}
+                        <img src="{{ image.url }}">
+                        
+                    </p>
+                </div>
+            </div>
+            <h1>xPort Business case</h1>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>The above scenario presents bigger challenges for conventional ports that fall in tier 2 and
+                        tier 3 bracket where processes are mostly manual and investments are lesser to come by for
+                        the most modern equipment and resources. Being mostly government-run, under trans-national
+                        trade obligations, ports are highly regulated and are inherently slow movers. But the advent
+                        of digital technologies is a boon today and seems the quickest way to leapfrog and secure
+                        the business with high customer satisfaction and surge ahead of the competition. Putting the
+                        above scenario in perspective; ports are mostly owned by the state, though private ports are
+                        becoming the new norm in many countries. So, their role is generally that of the landlord
+                        providing services to port customers such as shipping lines, terminal operators, freight
+                        forwarders, customs, etc. </p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="bold-text">
+                        With the annual growth in global container traffic hovering around 4%, and mergers &
+                        acquisitions being the norm, with very little investments going into greenfield port
+                        projects, improving port efficiencies seem the way forward to avoid losing business to
+                        competing ports around.
+
+                    </p>
+                </div>
+            </div>
+            <p class="majority-containerized">Action is of high intensity in terminal operations (majority
+                containerized) where automation is common or mandatory, though the level of automation varies. On
+                the contrary, automation is quite insufficient in port operations management from the landlord front
+                and that is where the opportunity exists for significant improvements via</p>
+
+            <ul class="app-l-business-case">
+                <li>Integration of port internal functions and </li>
+                <li>Integration of all external stakeholders to the port as well. </li>
+            </ul>
+            <p>The later for simplicity is termed as Port Community Systems PCS</p>
+            <div class="port-community-systems-block">
+                <span>
+                    <div class="image-block"><img src="assets/Images/Electrication.png"></div>
+                    <div>Electrication</div>
+                </span>
+                <span>
+                    <div class="image-block"><img src="assets/Images/Automation.png"></div>
+                    <div>Automation</div>
+                </span>
+                <span>
+                    <div class="image-block"><img src="assets/Images/Digitisation.png"></div>
+                    <div>Digitisation</div>
+                </span>
+                <span>
+                    <div class="image-block"><img src="assets/Images/Collaboration.png"></div>
+                    <div>Collaboration</div>
+                </span>
+            </div>
+            <p>
+                If the landlord is proactive and can evaluate the merits in port automation and take up full
+                integration of external stakeholders as well, this will go a long way in enhancing the economic
+                fortunes of the state, as ports play a major role in the national GDP.<br><br>
+
+                International Maritime Organisation is a strong advocate for PCS and it has redefined the model as
+                Maritime Single window, the name itself indicating efficiency, compliance and heightened customer
+                service. This opportunity was the trigger for the genesis of a platform plan called xPort®; the
+                brainchild of a team adept in maritime and digital technology space.<br><br>
+
+                The suite of applications on the xPort platform was developed by practitioners with decades of
+                maritime business background based in Rotterdam - the mecca for ports & seafarers; and India, backed
+                by a large technology team that was there from the beginning of the digital era in IT in 2008 when
+                mobile phones started getting smart and IoT made its way to making isolated data points integrated
+                and inclusive for smarter management of enterprise and consumer systems. And today, this capability
+                has gathered further momentum with cloud, AI, ML and analytics pave the way for smartness in
+                maritime business that can be like never before.
+
+            </p>
+
+
+
+        </div>
+        </section>
+
+        <section class="app-l-management-team">
+            <div class="container">
+                <h1>Management Team</h1>
+                <div class="media">
+                    <img src="assets/Images/MartinDebel.png" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <h2>Martin A W Debel </h2>
+                        <h3>Executive Director & Head of Maritime Practice</h3>
+                        <p>30+ years of experience, working for global Shipping lines, Terminal operators, Maritime IT
+                            Solution Providers and well-reputed management consultancy firms operating in Port, shipping
+                            and waterborne logistics domains.
+                            Specialist in business transformation through operational performance improvement and
+                            process redesign effectively enabled by IT/Digital technologies
+                            Based in the periphery of the ports of Rotterdam & Antwerp, Martin heads Experion’s maritime
+                            business line, Maritime Center of Excellence and carries global responsibility for
+                        </p>
+                        <ul>
+                            <li>Consulting services for Port authorities & Terminal operators</li>
+                            <li>xPort® (an international best-practices driven Port Operations Management system) </li>
+                            <li>Product-led Digital technology services</li>
+                        </ul>
+                        <p>Has a long and proven track record of developing & delivering outcome-focused IT solutions for the Port sector. Martin holds an engineering degree in Maritime Science from Rotterdam Institute of Technology and Applied Science, Netherlands, and is a post-graduate from TSM Business School.
+                            He had a Navigation License (All Ships/ All Seas) and worked as a navigation officer for the merchant navy.
+                            </p>
+                    </div>
+                </div>
+
+                <div class="media">
+                    <img src="assets/Images/Suresh.png" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <h2>Suresh V P</h2>
+                        <h3>Executive Director – Product development </h3>
+                        <p>Suresh carries 27 years of experience in product engineering, delivery and implementation of maritime, airline and logistics solutions and services across leading ports, airports and airlines around the world. He is a gold medalist in Masters – Computer Applications and has a technology team of over 200 in India that works under him constantly working on the product roadmap, customer implementations, customizations, integrations with 3rd party systems and provide 24X7 support to customers.
+                        </p>
+                       
+                    </div>
+                </div>
+
+                <div class="media">
+                    <img src="assets/Images/ProfHansRook.png" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <h2>Prof Hans Rook </h2>
+                        <h3>Consultant MSW</h3>
+                        <p>Hans Rook worked for Portbase and is a large shipping agent. Portbase is the PCS and MSW operator in the Netherlands and is owned by Rotterdam and Amsterdam port authorities. 
+                            Hans Rook is Chairman of IPCSA, the International Port Community System Association.
+                            
+                        </p>
+                      
+                    </div>
+                </div>
+
+                <div class="media">
+                    <img src="assets/Images/VictorThangaduarai.png" alt="Generic placeholder image">
+                    <div class="media-body">
+                        <h2>Victor Thangaduarai </h2>
+                        <h3> Sr Consultant PCS Implementations</h3>
+                        <ul>
+                            <li>Masters in Port Management at IMTA (International Maritime Transport Academy), the Netherlands.</li>
+                            <li>A postgraduate program in Marine Engineering</li>
+                            <li>BGL degree in General Law</li>
+                            <li>BE degree in Electrical Engineering</li>
+
+                        </ul>
+                     
+                    </div>
+                </div>
+            </div>
+        </section>
+          
+     
+
+            <p>The later for simplicity is termed as Port Community Systems PCS</p>
+            
+            
+
+
+        </div>
+    </section>
+     
+
+{% endblock content %}     
