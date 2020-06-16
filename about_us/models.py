@@ -58,6 +58,11 @@ class AboutUsPage(Page):
         null=True,
         blank=True,
     )
+    team_title = models.CharField(
+        null=True,
+        blank=True,
+        max_length=255,
+    )
     
     
     content_panels = Page.content_panels + [    
@@ -78,6 +83,7 @@ class AboutUsPage(Page):
                 InlinePanel('photo', label = "Images"),
                 FieldPanel('body_text_4'),
             ], heading="Body Section"),
+            FieldPanel('team_title'),
             InlinePanel('team', label = "Team"),
 
           

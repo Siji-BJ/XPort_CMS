@@ -3373,7 +3373,6 @@ button.slick-prev:hover {
 
 .app-l-about-us img {
   margin-top: 40px;
-  width: 100%;
 }
 
 .app-l-about-us .majority-containerized {
@@ -3449,7 +3448,7 @@ button.slick-prev:hover {
 }
 
 .app-l-about-us .port-community-systems-block span .image-block {
-  height: 113px;
+  height: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

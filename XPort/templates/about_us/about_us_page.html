@@ -121,7 +121,7 @@
                     </div>
                 </header>
             </div>
-            {% image page.image fill-1920x600 as image %} 
+            {% image page.image fill-700x200 as image %} 
             <div class="app-l-main-headings about-page-heading-bg" style="background-image:url('{{ image.url }}')">
                 <span>{{page.title}}</span>
             </div>
@@ -165,44 +165,33 @@
             <div class="port-community-systems-block">
                 {% for item in page.photo.all%}
                     <span>                   
-                        {% image item.gallery_image max-150x200 %}
-                        <div class="image-block"><img src="{{gallery_image.url}}"></div>
+                        {% image item.gallery_image max-100x400 %}                       
                         <div>{{item.caption}}</div>
                     </span>
                 {% endfor %}
             </div>
             <p>
                 {{page.body_text_4|safe}}
-
             </p>
-
-
-
         </div>
         </section>
-
         <section class="app-l-management-team">
             <div class="container">
-                <h1>Management Team</h1>
-                {% for item in page.team.all%}
+                <h1>{{page.team_title}}</h1>
+                {% for member in page.team.all%}
                     <div class="media">
-                        {% image item.photo max-900x700 %}
+                        {% image member.photo max-900x700 %}
                         <img src="{{photo.url}}">
                         <div class="media-body">
-                            <h2>{{item.name}}</h2>
-                            <h3>{{item.designation}}</h3>
-                            <p>{{item.profile|safe}}
+                            <h2>{{member.name}}</h2>
+                            <h3>{{member.designation}}</h3>
+                            <p>{{member.profile|safe}}
                             </p>
                         </div>
                     </div>
                 {% endfor %}
             </div>
         </section>
-        
-            
-            
-
-
         </div>
     </section>
      
