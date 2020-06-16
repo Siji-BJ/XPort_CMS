@@ -25,7 +25,7 @@ class ContactUsPage(Page):
             InlinePanel('contents',label='Details')
         ], heading= 'Details'),
         MultiFieldPanel([
-            InlinePanel('contact_details',label='Details')
+            InlinePanel('contact_details',label='Contact Details')
         ], heading= 'Contact Details'),
     ]
 class Contents(Orderable):
@@ -47,7 +47,7 @@ class Contents(Orderable):
         FieldPanel('content_body', classname='full')
     ]
 
-class ContactDeatils(Orderable):
+class ContactDetails(Orderable):
     page = ParentalKey('ContactUsPage', on_delete=models.CASCADE, related_name= 'contact_details')
     name = models.CharField(
         blank=False,
