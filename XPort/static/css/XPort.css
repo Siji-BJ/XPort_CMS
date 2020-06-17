@@ -3314,23 +3314,13 @@ button.slick-prev:hover {
   opacity: 0.8;
   background: #2C2150;
 }
-
-.contact-page-heading-bg {
-  background: url(./assets/Images/contact-bg.png);
+.about-page-heading-bg {
+  background: url(./assets/Images/about-bg.png);
 }
 
 .IndustryDirections-heading-bg {
   background: url(./assets/Images/IndustryDirections.png);
 }
-
-.xport-bg {
-  background: url(./assets/Images/xport-bg.png);
-}
-
-.cp-bg {
-  background: url(./assets/Images/cp_bg.png);
-}
-
 .app-l-about-us {
   margin: 360px 0 0 0;
   background: #fff;
@@ -3479,154 +3469,34 @@ button.slick-prev:hover {
     font-weight: 500;
     color: #000;
 }
-
-.app-l-management-team {
-  background: #F9F7F4;
-  padding-top: 80px;
-  float: left;
-  width: 100%;
+.app-l-contact-support {
+  background: #FEBB35;
+  padding: 40px 0 37px 0;
+  margin-bottom: 45px;
+  margin-left: 184px;
+  margin-right: 190px;
 }
-
-@media (max-width: 767px) {
-  .app-l-management-team {
-    padding-top: 32px;
-  }
-}
-
-.app-l-management-team h1 {
-  color: #3A414E;
-  font-size: 28px;
-  margin-bottom: 57px;
-}
-
-@media (max-width: 767px) {
-  .app-l-management-team h1 {
-    font-size: 24px;
-  }
-}
-
-.app-l-management-team .media {
-  border-bottom: 1px solid rgba(157, 157, 157, 0.34);
-  padding-bottom: 50px;
-  margin-bottom: 50px;
-  float: left;
-  width: 100%;
-}
-
-.app-l-management-team .media:last-child {
-  margin-bottom: 80px;
-}
-
-@media (max-width: 767px) {
-  .app-l-management-team .media {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-
-.app-l-management-team .media img {
-  margin-right: 40px;
-}
-
-@media (max-width: 767px) {
-  .app-l-management-team .media img {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 640px) {
-  .app-l-management-team .media img {
-    width: 100%;
-  }
-}
-
-.app-l-management-team .media .media-body h2 {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 30px;
-  color: #3A414E;
-  margin: 0 0 6px 0;
-}
-
-@media (max-width: 767px) {
-  .app-l-management-team .media .media-body h2 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-top: 28px;
-    text-align: center;
-  }
-}
-
-.app-l-management-team .media .media-body h3 {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: #3A414E;
-  margin: 0 0 24px 0;
-}
-
-@media (max-width: 767px) {
-  .app-l-management-team .media .media-body h3 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    text-align: center;
-  }
-}
-
-.app-l-management-team .media .media-body p {
-  font-size: 16px;
-  line-height: 30px;
-  color: #3A414E;
-  margin-bottom: 24px;
-}
-
-.app-l-management-team .media .media-body ul {
+.app-l-contact-support .container .row  ul {
   width: 100%;
   margin: 0 0 24px 0;
   padding: 0;
 }
 
-.app-l-management-team .media .media-body ul li {
+.app-l-contact-support .container .row  ul li {
   display: block;
   position: relative;
-  color: #3A414E;
   font-size: 16px;
   line-height: 30px;
   padding-left: 27px;
   margin-bottom: 8px;
 }
 
-.app-l-management-team .media .media-body ul li::after {
+.app-l-contact-support .container .row  ul li::after {
   content: '';
   position: absolute;
   width: 11px;
   height: 11px;
   border-radius: 50px;
-  background: #454F65;
   left: 0;
   top: 8px;
 }
@@ -3641,12 +3511,6 @@ button.slick-prev:hover {
 
 .main-banner-container .content-block .navbar {
   z-index: 999;
-}
-
-.app-l-contact-support {
-  background: #3C3468;
-  padding: 40px 0 37px 0;
-  margin-top: 42px;
 }
 
 .app-l-contact-support h1 {
@@ -3708,7 +3572,7 @@ button.slick-prev:hover {
   width: 100%;
   float: left;
   margin: 24px 0 0 0;
-  padding: 0;
+  padding: 0
 }
 
 @media (max-width: 992px) {
@@ -3727,17 +3591,17 @@ button.slick-prev:hover {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .app-l-contact-support ul li:last-child {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 .app-l-contact-support ul li p {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  color:black;
   margin: 0;
   line-height: normal;
 }
