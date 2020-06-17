@@ -3314,7 +3314,6 @@ button.slick-prev:hover {
   opacity: 0.8;
   background: #2C2150;
 }
-
 .about-page-heading-bg {
   background: url(./assets/Images/about-bg.png);
 }
@@ -3333,7 +3332,7 @@ button.slick-prev:hover {
 .app-l-about-us h1 {
   margin: 56px 0 18px 0;
   padding: 0;
-  color: #4C5564;
+ 
   font-weight: 500;
   font-size: 28px;
   line-height: 38px;
@@ -3364,7 +3363,6 @@ button.slick-prev:hover {
 
 .app-l-about-us img {
   margin-top: 40px;
-  width: 100%;
 }
 
 .app-l-about-us .majority-containerized {
@@ -3440,7 +3438,7 @@ button.slick-prev:hover {
 }
 
 .app-l-about-us .port-community-systems-block span .image-block {
-  height: 113px;
+  height: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3467,10 +3465,10 @@ button.slick-prev:hover {
 }
 
 .app-l-about-us .port-community-systems-block span div {
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 500;
-  color: #000;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    color: #000;
 }
 .app-l-contact-support {
   background: #FEBB35;
