@@ -166,7 +166,7 @@
                 {% for item in page.photo.all%}
                     <span>                   
                         {% image item.gallery_image max-100x400 %}                       
-                        <div>{{item.caption}}</div>
+                        <div style="position: absolute; top: 2145px;">{{item.caption}}</div>
                     </span>
                 {% endfor %}
             </div>

@@ -28,27 +28,43 @@ class OperationsManagementPage(Page):
                 FieldPanel('operations_title'),
             ]),
             InlinePanel('management_field', label="Management field"),
+
     ]
 
-class Management(models.Model):
+class Management1(models.Model):
     page = ParentalKey(OperationsManagementPage, on_delete=models.CASCADE, related_name='management_field')
-    title = models.TextField(
+    title1 = models.TextField(
         null=True,
         blank=True,
-        help_text='Text'
     )
-    pic = models.ForeignKey(
+    pic1 = models.ForeignKey(
         'wagtailimages.Image', null=True, blank=True,
         on_delete=models.SET_NULL, related_name='+'
     )
-    content = models.TextField(
+    content1 = models.TextField(
         null=True,
         blank=True,
-        help_text='Text'
+    )
+    title2 = models.TextField(
+        null=True,
+        blank=True,
+    )
+    pic2 = models.ForeignKey(
+        'wagtailimages.Image', null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='+'
+    )
+    content2 = models.TextField(
+        null=True,
+        blank=True,
     )
     panels = [
-        FieldPanel('title'),
-        ImageChooserPanel('pic'),
-        FieldPanel('content'),
+        FieldPanel('title1'),
+        ImageChooserPanel('pic1'),
+        FieldPanel('content1'),
+        FieldPanel('title2'),
+        ImageChooserPanel('pic2'),
+        FieldPanel('content2'),
     ]
+
+
 # Create your models here.
