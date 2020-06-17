@@ -3319,24 +3319,11 @@ button.slick-prev:hover {
   background: url(./assets/Images/about-bg.png);
 }
 
-.contact-page-heading-bg {
-  background: url(./assets/Images/contact-bg.png);
-}
-
 .IndustryDirections-heading-bg {
   background: url(./assets/Images/IndustryDirections.png);
 }
-
-.xport-bg {
-  background: url(./assets/Images/xport-bg.png);
-}
-
-.cp-bg {
-  background: url(./assets/Images/cp_bg.png);
-}
-
 .app-l-about-us {
-  margin: 210px 0 0 0;
+  margin: 360px 0 0 0;
   background: #fff;
   position: relative;
   z-index: 9;
