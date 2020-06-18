@@ -153,11 +153,12 @@
                             </div>
                         </div>
                     </section>
+                 
                     <div class="header-bg-bottom">
                         <div class="container">
                             <div class="row align-items-end mb-5">
                                 <div class="col-12">
-                                    <h3 class="margin-text">50 years of Container Ship Growth</h3>
+                                    <h3 class="margin-text">{{page.chart_title}}</h3>
                                 </div>
                                 <div class="col-12 col-lg-7 order-1 order-md-12">
                                     <div class="app-l-shipgrowth-block">
@@ -560,8 +561,8 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-5 order-12 text-center app-position-inherit">
-                                    <img class="app-objective-img ship-growth-img-block"
-                                        src="{% static 'assets/img/portfolio/fullsize/objective.png' %}">
+                                    <figure class="app-objective-img ship-growth-img-block">{% image page.chart_image fill-500x400-c500 %}</figure>
+                                    
                                 </div>
                             </div>
                         </div>

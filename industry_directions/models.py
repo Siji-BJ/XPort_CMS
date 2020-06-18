@@ -59,6 +59,26 @@ class IndustryDirectionsPage(Page):
         null=True,
         blank=True,
     )
+    chart_background = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+    chart_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+    chart_title = models.CharField(
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+    
     
     content_panels = Page.content_panels + [    
             ImageChooserPanel('image'),
@@ -78,6 +98,12 @@ class IndustryDirectionsPage(Page):
                 FieldPanel('base_title'),
                 FieldPanel('base_text'),
             ], heading = "Base section"),
+            MultiFieldPanel([
+                ImageChooserPanel('chart_background'),
+                ImageChooserPanel('chart_image'),
+                FieldPanel('chart_title'),
+            ], heading = "Growth chart section"),
+            InlinePanel('chart', label = "Field"),
     ]
 
 class Points(models.Model):
@@ -104,6 +130,39 @@ class Points(models.Model):
         FieldPanel('point_title'),
         FieldPanel('point_text'),
     ]
+
+class GrowthChart(models.Model):
+    page = ParentalKey(IndustryDirectionsPage, on_delete=models.CASCADE, related_name='chart')
+    growth_year = models.TextField(
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+    name = models.TextField(
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+    growth_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+    growth_unit = models.CharField(
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+
+    panels = [
+        FieldPanel('growth_year'),
+        ImageChooserPanel('growth_image'),
+        FieldPanel('name'),
+        FieldPanel('growth_unit'),       
+    ]
+
 
 
 
