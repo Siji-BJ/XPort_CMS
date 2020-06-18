@@ -1,3 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_class %}template-industrydirectionspage{% endblock %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+  
   <div class="main-wrapper">
         <div class="main-banner-container h-auto" id="bannerblk">
 
@@ -5,7 +12,7 @@
             <div class="content-block position-relative">
                 <div class="container">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="#"><img src="assets/Images/logo.png"></a>
+                        <a class="navbar-brand" href="#"><img src="{% static 'assets/img/portfolio/fullsize/logo.png' %}"></a>
                         <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown" role="button"
                             aria-expanded="false" aria-controls="navbarNavDropdown">
                             <span class="navbar-toggler-icon"></span>
@@ -115,8 +122,9 @@
                         </div>
                     </header>
                 </div>
-                <div class="app-l-main-headings IndustryDirections-heading-bg">
-                    <span>Industry Directions
+                {% image page.image fill-700x200 as image %}
+                <div class="app-l-main-headings IndustryDirections-heading-bg" style="background-image:url('{{ image.url }}')"> 
+                    <span>{{page.title}}
                     </span>
                 </div>
             </div>
@@ -127,40 +135,18 @@
 
                     <section class="app-l-about-us">
                         <div class="container">
-                            <h1>Port Business: The Imminent Shift to Digital Ports</h1>
+                            <h1>{{page.body_title}}</h1>
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <p>That will then set the trend for better vessels and faster port handling. The
-                                        maritime industry has been shifting gears quickly with the size of vessels going
-                                        up unimaginably and Deepwater container ports becoming a reality with the mother
-                                        vessels revolving around the world and leaving the feeder vessels to supply to
-                                        smaller ports. Container ships have been getting bigger since they began
-                                        operating in liner services over 50 years ago because the increased size
-                                        produces increased operating efficiency and improved environmental performance.
+                                    <p>{{page.body_text_1|safe}}
                                     </p>
                                 </div>
                                 <div class="col-lg-5">
-                                    <img class="coe-img w-auto" src="assets/Images/portal-business.png">
+                                    {% image page.body_image max-900x700 %}
+                                   
                                 </div>
                                 <div class="col-lg-12 mb-45">
-                                    <p class="bold-text mb-32">Some of the world's biggest container ships are about
-                                        1,300 feet long - that's nearly 400 meters or the distance around an Olympic
-                                        running track - with a maximum width of 180 feet (55 meters). Their engines
-                                        weigh 2,300 tons, their propellers 130 tons, and there are twenty-one stories
-                                        between their bridge and their engine room. They can be operated by teams of
-                                        just thirteen people and a sophisticated computer system and carry an
-                                        astonishing 11,000 20-foot containers. If that number of containers were loaded
-                                        onto a train it would need to be 44 miles or 71 kilometers long!
-                                    </p>
-                                    <p>And now, as the graph below depicts, there are ships even larger than that in
-                                        operation.
-                                        Imagine: today’s feeder vessels of 5000 TEU or below were the mother vessels a
-                                        couple of decades back! With China becoming the center of all manufacturing, a
-                                        product designed in the US or Europe could be built in China and delivered to
-                                        customers in days. This transformation needs a lot of technology to be deployed
-                                        in container terminals, yards, ports, customs, trucking companies or
-                                        clearing/forwarding or else the advantage of huge vessels and ports would be
-                                        limited by the time to clear cargo.
+                                    <p>{{page.body_text_2|safe}}
 
                                     </p>
                                 </div>
@@ -575,7 +561,7 @@
                                 </div>
                                 <div class="col-12 col-lg-5 order-12 text-center app-position-inherit">
                                     <img class="app-objective-img ship-growth-img-block"
-                                        src="assets/Images/objective.png">
+                                        src="{% static 'assets/img/portfolio/fullsize/objective.png' %}">
                                 </div>
                             </div>
                         </div>
@@ -587,191 +573,41 @@
                                 <div class="card-box-bottom mb-60">
                                     <div class="row">
                                         <div class="col-12 col-lg-6 order-1 order-md-12 mb-4">
-                                            <img src="assets/Images/Group 494.png" class="img__fluid"
-                                                alt="Responsive image">
+                                            {% image page.card_image fill-600x300 %}
                                         </div>
                                         <div class="col-12 col-lg-6 order-1 order-md-12 mb-4">
-                                            <h3 class="card-text mb-3">Container-carrying capacity has increased by
-                                                approximately 1,200% since 1968</h3>
-                                            <p>So this is why landlord ports have to re-think their strategy and invest
-                                                in equipment and software to service their shipping lines, cargo
-                                                customers and truckers or else they will go to ports who can service
-                                                them faster.<br>
-                                                The figure below depicts port service models to better understand the
-                                                need for digital technology. If ports can be ready with effective
-                                                scheduling, communication and cost-effective execution of services to
-                                                the highest customer satisfaction, then ports will see the business
-                                                surging. Planning the infrastructure well in time to address the cargo
-                                                growth would mean pulling business from not just ports nearby, but
-                                                countries near your port.
+                                            <h3 class="card-text mb-3">{{page.card_title}}</h3>
+                                            <p>{{page.card_text|safe}}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row app-l-industry-goals">
-                                    <div class="col-12 col-lg-2 text-center">
-                                        <img src="assets/Images/Group 432.png" class="img-fluid" alt="Responsive image">
+                                {% for item in page.point.all %}
+                                    <div class="row app-l-industry-goals">
+                                        <div class="col-12 col-lg-2 text-center">
+                                            {% image item.point_image max-100x150 %}
+                                        </div>
+                                        <div class="col-12 col-lg-10 align-items-center">
+                                            <h4>{{item.point_title}}</h4>
+                                            <p>{{item.point_text}}</p>
+                                        </div>
                                     </div>
-                                    <div class="col-12 col-lg-10 align-items-center">
-                                        <h4>Technology is not the hard part!</h4>
-                                        <p>Success depends on enabling people to use technology and data to make better
-                                            decisions and innovate faster. The greatest challenges often lie in adopting
-                                            new ways of working, acquiring new capabilities, enhancing skills and
-                                            changing the company’s culture.</p>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center app-l-industry-goals">
-                                    <div class="col-12 col-lg-2 text-center">
-                                        <img src="assets/Images/download (1) 1.png" class="img-fluid"
-                                            alt="Responsive image">
-                                    </div>
-                                    <div class="col-12 col-lg-10 align-items-center">
-                                        <h4>Technology questions are now CEO questions!</h4>
-                                        <p>The rise of digital business models has placed technology on the strategic
-                                            agenda</p>
-                                    </div>
-                                </div>
-                                <div class="row app-l-industry-goals">
-                                    <div class="col-12 col-lg-2 text-center">
-                                        <img src="assets/Images/Group 436.png" class="img-fluid" alt="Responsive image">
-                                    </div>
-                                    <div class="col-12 col-lg-10 align-items-center">
-                                        <h4>Business Intelligence versus Business Analytics!</h4>
-                                        <p>Monitoring and tracking metrics/KPIs in the form of reports or dashboards is
-                                            “Business Intelligence”, but making meaningful sense of these metrics/KPIs,
-                                            co-relating them with other factors that influence them, understanding the
-                                            trends and using statistical algorithms to predict outcomes is where the
-                                            difference comes. That is “Business Analytics”.<br><br>
-
-                                            For example - Rotterdam Port Authority has established a new business unit
-                                            to accelerate digital solutions
-                                            (±60 FTE)
-                                        </p>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
 
                     <div class="container">
-                        <h1>Technology Landscape</h1>
-                        <p class="mb--44">When it comes to technology more and more efficient hardware is being built by
-                            companies for
-                            port technology vendors. Gantry cranes, forklifts, automated trucks, lots of digital
-                            technology products in vehicles, mobile devices and cloud today are at work in major ports
-                            to unload a mother vessel in a matter of hours.<br><br>
-
-                            Imagine this efficiency is what makes all the difference. These are intensely being deployed
-                            in terminal operations. Can the same level of intensity be applied in port operations
-                            management? That is where the team xPort® is passionately involved.</p>
+                        <h1>{{page.base_title}}
+                       
+                        <p class="mt-76">{{page.base_text|safe}}</p>
                         </p>
-                        <div class="row app-l-technology-landscape-block mb-4">
-                            <div class="col-lg-6">
-                                <h4>2018</h4>
-                                <p>This is What Happens In an</p>
-                                <h5>Internet Minute</h5>
-                            </div>
-                            <div class="col-lg-6">
-                                <img src="assets/Images/TechnologyLandscape.png" class="img-fluid"
-                                    alt="Responsive image">
-
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row app-l-technology-landscape-block">
-                            <div class="col-lg-6">
-                                <h4>2019</h4>
-                                <p>This is What Happens In an</p>
-                                <h5>Internet Minute</h5>
-                            </div>
-                            <div class="col-lg-6">
-                                <img src="assets/Images/TechnologyLandscape_1.png" class="img-fluid"
-                                    alt="Responsive image">
-
-                            </div>
-                        </div>
-                        <p class="mt-76">When it comes to technology more and more efficient hardware is being built by
-                            companies for
-                            port technology vendors. Gantry cranes, forklifts, automated trucks, lots of digital
-                            technology products in vehicles, mobile devices and cloud today are at work in major ports
-                            to unload a mother vessel in a matter of hours.<br><br>
-
-                            Imagine this efficiency is what makes all the difference. These are intensely being deployed
-                            in terminal operations. Can the same level of intensity be applied in port operations
-                            management? That is where the team xPort® is passionately involved.</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <section class="footer-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-12">
-                        <img class="footer-logo" src="assets/Images/footer-logo.png">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="operations-management-system.html">Products</a></li>
-                            <li><a href="consultants-partners.html">Consultants & Partners</a></li>
-                            <li><a href="#">Industry Directions</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <h6 class="link-head">Contact Us</h6>
-                        <p class="app-contact-text">For any production support of customers using our product, users can
-                            send mails to raise tickets or</p>
-                        <h4>Call on <br>
-                            <span>1800-345-2020</span> <br>
-                            From anywhere
-                        </h4>
-                    </div>
-                    <div class="col-md-4 col-12 app-enquiry-holder">
-                        <h6 class="link-head">Enquiry </h6>
-                        <ul>
-                            <li>
-                                For Consultancy from Maritime Co
-                                <a>coe@xport-solutions.com</a>
-                            </li>
-                            <li>
-                                For new product sales
-                                <a>sales@xport-solutions.com</a>
-                            </li>
-                            <li>
-                                For port BPR consultancy for MSW
-                                <a>consult@xport-solutions.com</a>
-                            </li>
-                            <li>
-                                For support
-                                <a>support@xport-solutions.com</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-12">
-                        <p class="footer-content mb-0">2019. All right reserved</p>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <ul class="mb-0">
-                            <li><a href="#"><i class="fa fa-facebook-official icon" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin icon"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter icon"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-play icon"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-12 app-enquiry-holder text-right">
-                        <p class="footer-content mb-0">Terms & conditions | Privacy Policy</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    {% endblock content %}
    
 
