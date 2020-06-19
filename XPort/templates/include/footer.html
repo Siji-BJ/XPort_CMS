@@ -1,0 +1,46 @@
+{% load menus_tags  %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% get_menu "main-nav" as navigation %} 
+<section class="footer-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                {% image navigation.logo max-1200x1200 %}
+            </div>
+            <div class="col-md-4 col-12">
+                <ul>
+                    {% for item in navigation.menu_items.all %}
+                         <li> <a href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a></li>
+                    {% endfor %}
+                
+                </ul>
+            </div>
+            <div class="col-md-4 col-12 app-enquiry-holder">
+                <h6 class="link-head">{{hi}} </h6>
+                <ul>
+                    {% for item in enquiry %}
+                        <li>
+                            {{item.enquiry_about}}
+                            <a>{{item.enquiry_mail}}</a>
+                        </li>
+                    {% endfor %}    
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <p class="footer-content mb-0">2019. All right reserved</p>
+            </div>
+            <div class="col-md-4 col-12">
+                
+            </div>
+            <div class="col-md-4 col-12 app-enquiry-holder text-right">
+                <p class="footer-content mb-0">Terms &amp; conditions | Privacy Policy</p>
+            </div>
+        </div>
+    </div>
+</div>

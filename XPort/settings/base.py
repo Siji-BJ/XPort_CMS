@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'about_us',
     'operations',
     'industry_directions',
+    'menus',
     
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
