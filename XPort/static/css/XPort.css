@@ -3475,8 +3475,9 @@ button.slick-prev:hover {
 
 
 .app-l-about-us {
-  margin: 220px 0 0 0;
+  margin: 210px 0 0 0;
   background: #fff;
+  position: relative;
   z-index: 9;
   padding: 0 0 37px 0;
 }
@@ -3498,7 +3499,6 @@ button.slick-prev:hover {
     font-weight: 600;
     font-size: 24px;
   }
-}
 
 .app-l-about-us p {
   color: #3A414E;
@@ -3512,11 +3512,6 @@ button.slick-prev:hover {
   font-size: 22px;
   line-height: 37px;
 }
-
-.app-l-about-us img {
-  margin-top: 40px;
-}
-
 .app-l-about-us .majority-containerized {
   margin-top: 49px;
   margin-bottom: 24px;
