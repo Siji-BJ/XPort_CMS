@@ -1,5 +1,5 @@
 from django.db import models
-
+from wagtail.images.edit_handlers import ImageChooserPanel
 from django_extensions.db.fields import AutoSlugField
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
@@ -65,15 +65,54 @@ class Menu(ClusterableModel):
 
     title = models.CharField(max_length=100)
     slug = AutoSlugField(populate_from="title", editable=True)
+    logo =  models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
     # slug = models.SlugField()
 
     panels = [
         MultiFieldPanel([
             FieldPanel("title"),
             FieldPanel("slug"),
+            ImageChooserPanel('logo'),
         ], heading="Menu"),
         InlinePanel("menu_items", label="Menu Item")
     ]
 
+@register_snippet
+class Footer(ClusterableModel):
+    """
+    This provides editable text for the site footer. Again it uses the decorator
+    `register_snippet` to allow it to be accessible via the admin. It is made
+    accessible on the template via a template tag defined in base/templatetags/
+    navigation_tags.py
+    """
+    title = models.CharField(max_length=150)
+    panels = [
+        MultiFieldPanel([
+            FieldPanel('title'),
+            InlinePanel('enquiry')
+        ], heading= 'Enquiry')
+    ]
+
+    def __str__(self):
+        return "Footer text"
+
+
     def __str__(self):
         return self.title
+
+class Enquiry(Orderable):
+    page = ParentalKey('Footer', on_delete=models.CASCADE, related_name= 'enquiry')
+    enquiry_about = models.CharField(max_length=150)
+    enquiry_mail = models.CharField(max_length=150)
+
+    panels = [
+        FieldPanel('enquiry_about'),
+        FieldPanel('enquiry_mail'),
+
+    ]        
