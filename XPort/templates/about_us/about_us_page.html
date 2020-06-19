@@ -5,18 +5,14 @@
 
 {% block content %}
 
-<div class="main-wrapper">
-    <div class="main-banner-container h-auto" id="bannerblk">
-        <div class="content-block position-relative">
+
             {% image page.image fill-700x200 as image %} 
             <div class="app-l-main-headings about-page-heading-bg" style="background-image:url('{{ image.url }}')">
                 <span>{{page.title}}</span>
             </div>
-        </div>
-    </div>
 
     
-    <section class="app-l-about-us" style="margin: 220px 0 0 0;">
+    <section class="app-l-about-us">
         <div class="container">
             <h1>{{page.history_title}}</h1>
             <div class="row">
