@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_class %}template-operationsmanagementpage{% endblock %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+
+<div class="main-wrapper">
+    <div class="main-banner-container main-inner-banner-container" id="bannerblk">
+        <div class="content-block position-relative">         
+            {% image page.operations_image max-5000x2000 as image %}    
+            <div class="app-l-main-headings xport-bg app-l-main--headings" style="background-image:url('{{ image.url }}')">
+            </div>
+        </div>
+    </div>
+    <div class="container_sub">
+        <div class="app-l-xport-heading-content-block">
+            <span>
+                <h1>{{page.operations_title}}</h1>
+                <h2>{{page.title}}</h2>
+            </span>
+            <div class="app-l-sub-content">
+                {{page.operations_text|safe}}
+            </div>
+        </div>
+    </div>
+    <section class="app-l-static-content-block">
+        <div class="container_sub">
+            {% for item in page.management_field.all %}
+            <div class="row mb-56">        
+                <div class="col-lg-6">
+                    <h1>{{item.title1}}</h1>
+                    <p>{{item.content1}}</p>
+                </div>
+                <div class="col-lg-6">
+                    {% image item.pic1 max-900x700 %}
+                </div>
+            </div>          
+            <div class="row mb-56 flex__direction">
+                <div class="col-lg-6">
+                    {% image item.pic2 max-900x700 %}
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="">{{item.title2}}</h1>
+                    <p>{{item.content2}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    
+    
+</div>
+
+{% endblock content %}

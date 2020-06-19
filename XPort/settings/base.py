@@ -27,6 +27,10 @@ INSTALLED_APPS = [
     'home',
     'search',
     'consultansandpartners',
+    'contactus',
+    'about_us',
+    'operations',
+    'menus',
     
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
