@@ -9,6 +9,10 @@ register = template.Library()
 def get_menu(slug):
     return Menu.objects.get(slug=slug)
 
-@register.inclusion_tag('templates/include/footer_text.html', takes_context=True)
-def get_footers(context):
-    return Footer.objects
+@register.inclusion_tag('include\footer.html')
+def get_footer(Footer):
+    # enquiry = Footer.objects.first.title
+    hi ='hi'
+    return {
+        'hi':hi
+    }

@@ -85,12 +85,6 @@ class Menu(ClusterableModel):
 
 @register_snippet
 class Footer(ClusterableModel):
-    """
-    This provides editable text for the site footer. Again it uses the decorator
-    `register_snippet` to allow it to be accessible via the admin. It is made
-    accessible on the template via a template tag defined in base/templatetags/
-    navigation_tags.py
-    """
     title = models.CharField(max_length=150)
     panels = [
         MultiFieldPanel([
@@ -98,10 +92,6 @@ class Footer(ClusterableModel):
             InlinePanel('enquiry')
         ], heading= 'Enquiry')
     ]
-
-    def __str__(self):
-        return "Footer text"
-
 
     def __str__(self):
         return self.title
