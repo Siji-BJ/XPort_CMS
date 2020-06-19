@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_class %}template-aboutuspage{% endblock %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block content %}
+
+<div class="main-wrapper">
+    <div class="main-banner-container h-auto" id="bannerblk">
+        <div class="content-block position-relative">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#"><img src="{% static 'assets/img/portfolio/fullsize/logo.png' %}"></a>
+                    <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown" role="button"
+                        aria-expanded="false" aria-controls="navbarNavDropdown">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse multi-collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav web">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Industry-directions.html">Industry Directions</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#"> About Us</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="operations-management-system.html">xPort Operations Management System</a>
+                                    <a class="dropdown-item" href="maritime-single-window.html">xPort Maritime Single Window</a>
+                                  </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="consultants-partners.html">Consultants & Partners</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html">
+                                <button class="btn btn-primary">
+                                    Contact Us
+                                </button>
+                            </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mobile">
+                            <button class="close-icon" data-toggle="collapse" href="#navbarNavDropdown" role="button"
+                            aria-expanded="false" aria-controls="navbarNavDropdown">
+                                <img src="assets/Images/close-white.png">
+                            </button>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Industry-directions.html">Industry Directions</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#"> About Us</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="operations-management-system.html">xPort Operations Management System</a>
+                                    <a class="dropdown-item" href="maritime-single-window.html">xPort Maritime Single Window</a>
+                                  </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="consultants-partners.html">Consultants & Partners</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html">
+                                <button class="btn btn-primary">
+                                    Contact Us
+                                </button>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <header class="main_h">
+                    <div class="container">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <a class="navbar-brand" href="#"><img src="assets/Images/logo.png"></a>
+                            <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown1"
+                                role="button" aria-expanded="false" aria-controls="navbarNavDropdown1">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse multi-collapse navbar-collapse" id="navbarNavDropdown1">
+                                <ul class="navbar-nav web">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Industry-directions.html">Industry Directions</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#"> About Us</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="operations-management-system.html">xPort Operations Management System</a>
+                                            <a class="dropdown-item" href="maritime-single-window.html">xPort Maritime Single Window</a>
+                                          </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="consultants-partners.html">Consultants & Partners</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="contact.html">
+                                        <button class="btn btn-primary">
+                                            Contact Us
+                                        </button>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+            {% image page.image fill-700x200 as image %} 
+            <div class="app-l-main-headings about-page-heading-bg" style="background-image:url('{{ image.url }}')">
+                <span>{{page.title}}</span>
+            </div>
+        </div>
+    </div>
+
+    
+    <section class="app-l-about-us" style="margin: 220px 0 0 0;">
+        <div class="container">
+            <h1>{{page.history_title}}</h1>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>{{page.main_text|safe}}</p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="bold-text">
+                        {{page.side_text}}
+                        {% image page.history_image fill-800x1000-c500 as image %}
+                        <img src="{{ image.url }}">
+                        
+                    </p>
+                </div>
+            </div>
+            <h1>{{page.body_title}}</h1>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>{{page.body_text_1|safe}}</p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="bold-text">
+                        {{page.body_side_text}}
+                    </p>
+                </div>
+            </div>
+            <p class="majority-containerized">{{page.body_text_2|safe}}</p>
+
+            <ul class="app-l-business-case">
+                {% for item in page.points.all%}
+                    <li>{{item.point}}</li>
+                {% endfor %}
+            </ul>
+            <p>{{page.body_text_3|safe}}</p>
+            <div class="port-community-systems-block">
+                {% for item in page.photo.all%}
+                    <span>                   
+                        {% image item.gallery_image max-100x400 %}                       
+                        <div style="position: absolute; top: 2505px;">{{item.caption}}</div>
+                    </span>
+                {% endfor %}
+            </div>
+            <p>
+                {{page.body_text_4|safe}}
+            </p>
+        </div>
+        </section>
+
+        <section class="app-l-management-team">
+            <div class="container">
+                <h1>{{page.team_title}}</h1>
+                {% for member in page.team.all%}
+                    <div class="media">
+                        {% image member.photo max-900x700 %}
+                        <img src="{{photo.url}}">
+                        <div class="media-body">
+                            <h2>{{member.name}}</h2>
+                            <h3>{{member.designation}}</h3>
+                            <p>{{member.profile|safe}}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+              
+            </div>
+        </section>
+
+    </div>
+
+    
+
+     
+
+{% endblock content %}     

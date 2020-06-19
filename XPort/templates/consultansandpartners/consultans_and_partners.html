@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% block content %}
+    {%  image page.header_image max-1200x1200 as image %}
+    <div class="app-l-main-headings cp-bg" style="background-image: url(' {{ image.url }} ')">
+        <span>
+            {{page.title}}
+        </span>
+    </div>
+    <div class="app-l-static-pages app-l-about-us mb-5">
+        <div class="container-main-xport">
+            <div class="container-fluid p-0 m-0">
+                <section class="app-l-about-us app-l-consultants-partners-block">
+                    <div class="container">
+                        {%if page.consultans_Partners_body or page.consultans_Partners_image %}
+                            <div class="row">
+                                {%if page.consultans_Partners_body or page.consultans_Partners_image %}
+                                    <div class="col-lg-6">
+                                        {{page.consultans_Partners_body|richtext}}
+                                    </div>
+                                {%endif%}
+                                {%if page.consultans_Partners_body or page.consultans_Partners_image %}
+                                    <div class="col-lg-6">
+                                        {% image page.consultans_Partners_image width-500 height-500 %}
+                                    </div>
+                                {%endif%}
+                            </div>
+                        {%endif%}
+                        <div class="row flex__direction app-l-idp-prg">
+                            {% if page.idp_program_image %}
+                                <div class="col-lg-6 mt-0">
+                                    {% image page.idp_program_image max-1400x1400 %}
+                                </div>
+                            {% endif %}
+                            {% if page.idp_program_title or page.idp_program_body %}
+                                <div class="col-lg-6">
+                                    {% if page.idp_program_title %}
+                                        <h1>{{page.idp_program_title}}</h1>
+                                    {% endif %} 
+                                    {% if page.idp_program_body %}
+                                        <p>{{page.idp_program_body|richtext}} </p>
+                                    {%endif%}    
+                                </div>
+                            {% endif %}    
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    
+{% endblock %}  
