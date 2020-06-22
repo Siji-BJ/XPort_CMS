@@ -13,19 +13,9 @@
             <div class="collapse multi-collapse navbar-collapse" id="navbarNavDropdown1">
                 <ul class="navbar-nav web">
                     {% for item in navigation.menu_items.all %}
-                         <li class="nav-item ml-5"> <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a></li>
+                         <li class="nav-item ml-3"> <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a></li>
                     {% endfor %}
                 </ul>
-                <!-- <ul class="navbar-nav mobile">
-                    <button class="close-icon" data-toggle="collapse" href="#navbarNavDropdown"
-                        role="button" aria-expanded="false" aria-controls="navbarNavDropdown">
-                        <img src="{% static 'assets/Images/close-white.png' %}">
-                    </button>
-                    {% for item in navigation.menu_items.all %}
-                         <li class="nav-item ml-5"> <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a></li>
-                    {% endfor %}
-                    
-                </ul> -->
             </div>
         </nav>
 
