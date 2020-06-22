@@ -5,9 +5,10 @@
 {% block content %}
 
        <!-- Masthead-->
-    <div class="main-banner-container" id="bannerblk">
-        {% image page.image max-5000x800 as image %}
-       <div class="content-block" style="background-image:url('{{ image.url }}')">
+    {% image page.image max-1420x700 as image %}
+    <div class="main-banner-container" id="bannerblk"  style="background-image:url('{{ image.url }}')">
+        
+       <div class="content-block">
             <div class="container">
                 <div class="banner-caption-holder">
                     <div class="banner-caption">
