@@ -10,9 +10,8 @@ def get_menu(slug):
     return Menu.objects.get(slug=slug)
 
 @register.inclusion_tag('include\footer.html')
-def get_footer(Footer):
-    # enquiry = Footer.objects.first.title
-    hi ='hi'
+def get_footer(Context):
+    enquiry = Footer.objects.first  
     return {
-        'hi':hi
+        'enquiry':enquiry
     }
