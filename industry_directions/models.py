@@ -89,6 +89,12 @@ class IndustryDirectionsPage(Page):
                 FieldPanel('body_text_2'),
             ], heading = "Body section"),
             MultiFieldPanel([
+                ImageChooserPanel('chart_background'),
+                ImageChooserPanel('chart_image'),
+                FieldPanel('chart_title'),
+            ], heading = "Growth chart section"),
+            InlinePanel('chart', label = "Field"),
+            MultiFieldPanel([
                 ImageChooserPanel('card_image'),
                 FieldPanel('card_title'),
                 FieldPanel('card_text'),
@@ -98,12 +104,6 @@ class IndustryDirectionsPage(Page):
                 FieldPanel('base_title'),
                 FieldPanel('base_text'),
             ], heading = "Base section"),
-            MultiFieldPanel([
-                ImageChooserPanel('chart_background'),
-                ImageChooserPanel('chart_image'),
-                FieldPanel('chart_title'),
-            ], heading = "Growth chart section"),
-            InlinePanel('chart', label = "Field"),
     ]
 
 class Points(models.Model):
