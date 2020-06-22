@@ -133,7 +133,6 @@ b {
   height: 100vh;
   left: 0px;
   top: 0px;
-  background: #2C2150;
   mix-blend-mode: normal;
   opacity: 0.6;
 }
@@ -174,70 +173,69 @@ b {
   .main-banner-container .content-block {
     height: 100%;
   }
-  .main-banner-container .content-block .container {
+   .container {
     height: 100%;
   }
 }
 
-.main-banner-container .content-block .navbar {
+ .navbar {
   background: none !important;
   padding: 30px 0;
 }
 
 @media (max-width: 767px) {
-  .main-banner-container .content-block .navbar {
+  .navbar {
     padding: 15px 0;
   }
 }
 
-.main-banner-container .content-block .navbar .navbar-brand {
+ .navbar .navbar-brand {
   margin-right: 22px;
 }
 
-.main-banner-container .content-block .navbar .navbar-collapse {
+ .navbar .navbar-collapse {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-
-.main-banner-container .content-block .navbar .navbar-collapse .navbar-nav {
+.navbar .navbar-collapse .navbar-nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 @media (max-width: 767px) {
-  .main-banner-container .content-block .navbar .navbar-collapse.show .navbar-nav {
+  .navbar .navbar-collapse.show .navbar-nav {
     left: 0;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse.hide .navbar-nav {
+  .navbar .navbar-collapse.hide .navbar-nav {
     left: -750px;
   }
 }
 
-.main-banner-container .content-block .navbar .navbar-collapse .navbar-nav {
+ .navbar .navbar-collapse .navbar-nav {
   margin: 0 16px;
   position: relative;
 }
 
-.main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.mobile {
+ .navbar .navbar-collapse .navbar-nav.mobile {
   display: none;
 }
 
 @media (max-width: 991px) {
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav {
+   .navbar .navbar-collapse .navbar-nav {
     margin-top: 15px;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav li {
+  .navbar .navbar-collapse .navbar-nav li {
     margin: 0 !important;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav li a {
+  .navbar .navbar-collapse .navbar-nav li a {
     padding: 15px 0px;
   }
 }
 
 @media (max-width: 767px) {
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav {
+  .navbar .navbar-collapse .navbar-nav {
     margin-top: 0;
     position: fixed;
     background: #fff;
@@ -251,14 +249,14 @@ b {
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.mobile {
+  .navbar .navbar-collapse .navbar-nav.mobile {
     display: block;
     margin: 0 !important;
     z-index: 99;
     background: #352C5D;
     padding: 75px 32px 0 !important;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.mobile .close-icon {
+  .navbar .navbar-collapse .navbar-nav.mobile .close-icon {
     background: none !important;
     padding: 0 !important;
     border: 0 !important;
@@ -267,10 +265,10 @@ b {
     right: 16px;
     outline: 0 !important;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.mobile .close-icon img {
+ .navbar .navbar-collapse .navbar-nav.mobile .close-icon img {
     width: 20px !important;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.mobile li a {
+.navbar .navbar-collapse .navbar-nav.mobile li a {
     border-bottom: 1px solid #736E8F;
     color: #ffffff !important;
     font-size: 16px !important;
@@ -283,13 +281,13 @@ b {
    .navbar .navbar-collapse .navbar-nav.mobile li a:hover,  .navbar .navbar-collapse .navbar-nav.mobile li a:focus,.navbar .navbar-collapse .navbar-nav.mobile li a:active {
     color: #ffc800 !important;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.mobile li .btn {
+   .navbar .navbar-collapse .navbar-nav.mobile li .btn {
     margin: 16px 0 !important;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.web {
+ .navbar .navbar-collapse .navbar-nav.web {
     display: none;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav li a {
+  .navbar .navbar-collapse .navbar-nav li a {
     padding: 15px 24px;
     color: #0b223f !important;
     font-size: 22px !important;
@@ -318,7 +316,7 @@ b {
     background: #00c5ff;
     color: #fff !important;
   }
-  .main-banner-container .content-block .navbar .navbar-collapse .navbar-nav li a .fa {
+ .navbar .navbar-collapse .navbar-nav li a .fa {
     font-size: 27px;
   }
 }
@@ -401,7 +399,7 @@ b {
   border-bottom: 0 !important;
 }
 
-.main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.logo {
+ .navbar .navbar-collapse .navbar-nav.logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -414,11 +412,11 @@ b {
   padding: 0 24px;
 }
 
-.main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.logo .logo-img {
+ .content-block .navbar .navbar-collapse .navbar-nav.logo .logo-img {
   width: 170px;
 }
 
-.main-banner-container .content-block .navbar .navbar-collapse .navbar-nav.logo .close-icon {
+ .content-block .navbar .navbar-collapse .navbar-nav.logo .close-icon {
   width: 16px;
 }
 
@@ -453,7 +451,7 @@ b {
   color: #ffc800;
 }
 
-.main-banner-container .content-block .navbar .navbar-collapse .navbar-nav .nav-link.dropdown-toggle::after {
+.navbar .navbar-collapse .navbar-nav .nav-link.dropdown-toggle::after {
   content: "\f107";
   font-family: 'Fontawesome';
   border: none !important;
@@ -2846,7 +2844,14 @@ b {
   left: 0;
 }
 
-.main_h .navbar {
+.sticky {
+  /* background-color: rgba(43, 33, 81, 0.93); */
+  opacity: 1;
+  top: 0px;
+  /* border-bottom: 1px solid #53487b; */
+}
+
+ .navbar {
   padding: 15px 0 !important;
 }
 
@@ -2865,12 +2870,6 @@ b {
   -webkit-transform: rotate(-90deg);
 }
 
-.sticky {
-  background-color: rgba(43, 33, 81, 0.93);
-  opacity: 1;
-  top: 0px;
-  border-bottom: 1px solid #53487b;
-}
 
 * {
   -webkit-box-sizing: border-box;
@@ -3649,7 +3648,7 @@ button.slick-prev:hover {
   color: #ffc800;
 }
 
-.main-banner-container .content-block .navbar {
+ .navbar {
   z-index: 999;
 }
 
@@ -4113,6 +4112,12 @@ button.slick-prev:hover {
 
 .container {
   max-width: 1184px;
+  width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
 }
 
 .app-l-technology-landscape-block {
@@ -4338,7 +4343,7 @@ button.slick-prev:hover {
 }
 
 .app-l-static-pages .header-bg {
-  background: #23244e;
+  /* background: #23244e; */
   width: 100%;
   height: 500px;
 }

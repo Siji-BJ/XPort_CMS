@@ -4,21 +4,27 @@
 
 {% block content %}
 
-       <!-- Masthead-->
-    {% image page.image max-1420x700 as image %}
-    <div class="main-banner-container" id="bannerblk"  style="background-image:url('{{ image.url }}')">
-        
-       <div class="content-block">
-            <div class="container">
-                <div class="banner-caption-holder">
-                    <div class="banner-caption">
-                        <h1>{{ page.title }}</h1>
+    <div class="main-wrapper">
+        <div class="main-banner-container" id="bannerblk">
+            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    
+                    <div class="carousel-item active" data-interval="10000">
+                        {% image page.image max-1420x700 %}
                     </div>
                 </div>
             </div>
-       </div>  
+        <div class="content-block">
+                <div class="container">
+                    <div class="banner-caption-holder">
+                        <div class="banner-caption">
+                            <h1>{{ page.title }}</h1>
+                        </div>
+                    </div>
+                </div>
+        </div>  
 
-    </div>
+        </div>
        
         <!-- Vision and mission-->
         <section class="mission-block" id="content">
@@ -70,7 +76,7 @@
                         <div class="app-objective-img"> {% image page.objectives_side_image fill-2600x2200 %}</div></div>
                     </div>
                 </div>
-            </div>
+            
         </section>
         <!-- USP Section-->
         {% if page.usps%}
@@ -103,7 +109,6 @@
                 </div>
             </section>
         {%endif%} 
-        <!-- Call to action-->
         <section class="support-block">
             <div class="container">
                 <div class="app-support-block-container">
@@ -159,6 +164,5 @@
                 </div>
             </div>
         </section>
-        <!-- Contact-->
-        
+    </div>
 {% endblock content %}       
