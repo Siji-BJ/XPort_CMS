@@ -3,6 +3,7 @@ function myFunction(id) {
     elmnt.scrollIntoView({ behavior: "smooth" });
 }
 
+
 ; (function ($) {
     'use strict';
 
