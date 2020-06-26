@@ -12,8 +12,51 @@ from wagtail.admin.edit_handlers import (
 from wagtail.core.models import Orderable
 from wagtail.snippets.models import register_snippet
 
+class SubMenu(Orderable):
+    page_title = models.CharField(
+        blank=True,
+        null=True,
+        max_length=50
+    )
+    sub_url = models.CharField(
+        max_length=500,
+        blank=True
+    )
+    sub_page = models.ForeignKey(
+        "wagtailcore.Page",
+        null=True,
+        blank=True,
+        related_name="+",
+        on_delete=models.CASCADE,
+    )
+    new_tab = models.BooleanField(default=False, blank=True)
 
-class MenuItem(Orderable):
+    page = ParentalKey("MenuItem", related_name="sub_menu")
+
+    panels = [
+        FieldPanel("page_title"),
+        FieldPanel("sub_url"),
+        PageChooserPanel("sub_page"),
+        FieldPanel("new_tab"),
+    ]
+
+    @property
+    def link(self):
+        if self.sub_page:
+            return self.sub_page.url
+        elif self.sub_url:
+            return self.sub_url
+        return '#'
+
+    @property
+    def title(self):
+        if self.sub_page and not self.page_title:
+            return self.sub_page.title
+        elif self.page_title:
+            return self.page_title
+        return 'Missing Title'
+
+class MenuItem(ClusterableModel):
 
     link_title = models.CharField(
         blank=True,
@@ -40,6 +83,7 @@ class MenuItem(Orderable):
         FieldPanel("link_url"),
         PageChooserPanel("link_page"),
         FieldPanel("open_in_new_tab"),
+        InlinePanel("sub_menu", label="Sub menu"),
     ]
 
     @property

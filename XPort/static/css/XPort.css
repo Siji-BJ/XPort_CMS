@@ -323,6 +323,7 @@ b {
 
 .navbar .navbar-collapse .navbar-nav .nav-item {
   margin-right: 32px;
+   
 }
 
  .navbar .navbar-collapse .navbar-nav .nav-item.show .dropdown-toggle::after {
@@ -338,6 +339,7 @@ b {
 
  .navbar .navbar-collapse .navbar-nav .nav-item:last-child {
   margin-right: 0;
+  margin-top: 15px;
 }
 
 .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-menu {
@@ -430,7 +432,9 @@ b {
 
  .navbar .navbar-collapse .navbar-nav:last-child {
   margin-right: 0;
+  position: relative;
 }
+
 .navbar .navbar-collapse .navbar-nav .nav-link {
   font-weight: 500;
   font-size: 16px;
@@ -2845,10 +2849,10 @@ b {
 }
 
 .sticky {
-  /* background-color: rgba(43, 33, 81, 0.93); */
+  background-color: rgba(43, 33, 81, 0.93); 
   opacity: 1;
   top: 0px;
-  /* border-bottom: 1px solid #53487b; */
+  border-bottom: 1px solid #53487b; 
 }
 
  .navbar {
@@ -3497,10 +3501,6 @@ button.slick-prev:hover {
   line-height: 37px;
 }
 
-.app-l-about-us img {
-  margin-top: 40px;
-}
-
 .app-l-about-us .majority-containerized {
   margin-top: 49px;
   margin-bottom: 24px;
@@ -3574,7 +3574,7 @@ button.slick-prev:hover {
 }
 
 .app-l-about-us .port-community-systems-block span .image-block {
-  height: 20px;
+  height: 113px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4488,6 +4488,24 @@ button.slick-prev:hover {
   position: relative;
 }
 
-
-
 /*# sourceMappingURL=main.css.map */
+
+/* header transaprent */
+
+.block-content{
+  position: absolute; top: 0; width: 100%; height: 100%;
+}
+
+.navbar navbar-expand-lg navbar-light bg-light{
+  z-index: 999;background: none !important; padding: 30px 0;
+}
+
+.collapse multi-collapse navbar-collapse{
+  -webkit-box-pack: end; 
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.navbar-brand{
+  margin-right: 22px;
+}
