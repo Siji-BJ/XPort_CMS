@@ -16,12 +16,14 @@
                 </ul>
             </div>
             <div class="col-md-4 col-12 app-enquiry-holder">
-                <h6 class="link-head">{{hi}} </h6>
+                {% if footer.title%}
+                     <h6 class="link-head">{{footer.title}} </h6>
+                {% endif %}     
                 <ul>
-                    {% for item in enquiry %}
+                    {% for item in footer.enquiry.all %}
                         <li>
                             {{item.enquiry_about}}
-                            <a>{{item.enquiry_mail}}</a>
+                            <a class="mt-1">{{item.enquiry_mail}}</a>
                         </li>
                     {% endfor %}    
                 </ul>
