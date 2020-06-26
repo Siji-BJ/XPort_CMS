@@ -9,9 +9,9 @@ register = template.Library()
 def get_menu(slug):
     return Menu.objects.get(slug=slug)
 
-@register.inclusion_tag('include\footer.html')
-def get_footer(Context):
-    enquiry = Footer.objects.first  
+@register.inclusion_tag('include/footer.html', takes_context=True)
+def get_footer(context):
+    footer = Footer.objects.first() 
     return {
-        'enquiry':enquiry
+        'footer':footer
     }
