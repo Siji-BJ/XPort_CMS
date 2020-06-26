@@ -15,14 +15,23 @@
     <div class="collapse multi-collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav web">
             {% for item in navigation.menu_items.all %}
-                {% if item.title == 'Contact Us'%}
-                <li class="nav-item">
-                    <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
-                        <button class="btn btn-primary">
-                            Contact Us
-                        </button>
-                    </a>
-                </li>
+                {% if item.sub_menu.all %}                   
+                    <li class="nav-item dropdown" style="margin-top: 14px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.title}}</a>                       
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
+                                {% for sub in item.sub_menu.all %}            
+                                <a class="dropdown-item" href="{{ sub.link }}">{{sub.page_title}}</a>  
+                                {% endfor %} 
+                            </div>                     
+                    </li>  
+                {% elif item.title == 'Contact Us'%}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
+                            <button class="btn btn-primary">
+                                Contact Us
+                            </button>
+                        </a>
+                    </li>               
                 {% else %}
                     <li class="nav-item mt-3 ml-3 mr-4">
                         <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
@@ -30,6 +39,8 @@
                         </a>
                     </li>
                 {% endif %}
+
+                
             {% endfor %}
         </ul>
     </div>
@@ -46,21 +57,22 @@
             <div class="collapse multi-collapse navbar-collapse" id="navbarNavDropdown1">
                 <ul class="navbar-nav web">
                     {% for item in navigation.menu_items.all %}
-                        {% if item.title == 'Contact Us'%}
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
-                                <button class="btn btn-primary">
-                                    Contact Us
-                                </button>
-                            </a>
-                        </li>
-                        {% else %}
-                            <li class="nav-item mt-3 ml-3 mr-4">
-                                <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
-                                     {{ item.title }}
-                                </a>
-                            </li>
-                        {% endif %}
+                    {% if item.sub_menu.all %}                   
+                    <li class="nav-item dropdown" style="margin-top: 14px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.title}}</a>                       
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
+                                {% for sub in item.sub_menu.all %}            
+                                <a class="dropdown-item" href="{{ sub.link }}">{{sub.page_title}}</a>  
+                                {% endfor %} 
+                            </div>                     
+                    </li>                 
+                {% else %}
+                    <li class="nav-item mt-3 ml-3 mr-4">
+                        <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
+                             {{ item.title }}
+                        </a>
+                    </li>
+                {% endif %}
                     {% endfor %}
                 </ul>
             </div>

@@ -323,6 +323,7 @@ b {
 
 .navbar .navbar-collapse .navbar-nav .nav-item {
   margin-right: 32px;
+   
 }
 
  .navbar .navbar-collapse .navbar-nav .nav-item.show .dropdown-toggle::after {
@@ -338,6 +339,7 @@ b {
 
  .navbar .navbar-collapse .navbar-nav .nav-item:last-child {
   margin-right: 0;
+  margin-top: 15px;
 }
 
 .navbar .navbar-collapse .navbar-nav .nav-item .dropdown-menu {
