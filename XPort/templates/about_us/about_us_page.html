@@ -6,7 +6,7 @@
 {% block content %}
 
 
-            {% image page.image fill-700x200 as image %} 
+            {% image page.image max-1200x1200 as image %} 
             <div class="app-l-main-headings about-page-heading-bg" style="background-image:url('{{ image.url }}')">
                 <span>{{page.title}}</span>
             </div>
@@ -21,8 +21,8 @@
                 </div>
                 <div class="col-lg-4">
                     <p class="bold-text">
-                        {{page.side_text}}
-                        {% image page.history_image fill-800x1000-c500 as image %}
+                        {{page.side_text|safe}}<br><br>
+                        {% image page.history_image max-370x750 as image %}
                         <img src="{{ image.url }}">
                         
                     </p>
