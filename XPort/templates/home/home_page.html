@@ -121,9 +121,9 @@
                                         <span class="download-arrow-img-holder">{% image page.download_image_for_brochure fill-200x200%}</span>
                                     {%endif%}
                                     <div class="media-body">
-                                        {%if page.download_text_with_brochure_%}
+                                        {% if page.download_text_with_brochure %}
                                             <h5 class="mt-0">{{page.download_text_with_brochure}} </h5>
-                                        {%endif%}
+                                        {% endif %}
                                         <p>{{item.brochure_name}}</p>
                                     </div>
                                 </div>
