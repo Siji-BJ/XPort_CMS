@@ -196,7 +196,7 @@ b {
  .navbar .navbar-collapse {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: flex-end;
+          justify-content: center;
 }
 .navbar .navbar-collapse .navbar-nav {
   -webkit-box-align: center;

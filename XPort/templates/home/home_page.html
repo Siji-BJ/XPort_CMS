@@ -121,9 +121,9 @@
                                         <span class="download-arrow-img-holder">{% image page.download_image_for_brochure fill-200x200%}</span>
                                     {%endif%}
                                     <div class="media-body">
-                                
+                                        {%if page.download_text_with_brochure_%}
                                             <h5 class="mt-0">{{page.download_text_with_brochure}} </h5>
-                                   
+                                        {%endif%}
                                         <p>{{item.brochure_name}}</p>
                                     </div>
                                 </div>
@@ -132,15 +132,15 @@
                     </div>
                     {% image page.background_image_of_support max-1200x1200 as support_bg_image %}
                     <div class="app-support-block-item secondary" style="background-image:url('{{ support_bg_image.url }}')">
-                        <h3>24X7 Support</h3>
-                        <h6>With our focus on making ports most efficient with xPort® and xPort MSW, we offer product-led consulting, product sales and ongoing support for any port stakeholder 24X7, all year round.</h6>
+                        <h3>{{page.support_title}}</h3>
+                        <h6>{{page.support_text}}</h6>
                     </div>
                                        
                     <div class="app-support-block-item tertiary">
                         <div class="contact-holder">
                             <h4>{{ page.contact_us_title }}</h4>
                             <h2 class="contact-head">{{ self.intro|richtext }}</h2>
-                            <form action="" method="POST">
+                            <form action="{% pageurl page %}" method="POST" role="form">
                                 {% csrf_token %}
                                 {% for field in form.visible_fields %}
                                     <div class="form-group">
@@ -155,10 +155,10 @@
                                {% endfor %}
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-primary" data-toggle="modal" data-target="#successModal" type="button">Send Now</button>
+                                        <input type="submit" value="Send Now" class="btn btn-primary" data-toggle="modal" data-target="#successModal" type="button">
                                     </div>
                                 </div>
-                            <!-- </form> -->
+                            </form>  
                         </div>
                     </div>
                 </div>
