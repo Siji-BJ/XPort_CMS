@@ -140,7 +140,7 @@
                         <div class="contact-holder">
                             <h4>{{ page.contact_us_title }}</h4>
                             <h2 class="contact-head">{{ self.intro|richtext }}</h2>
-                            <form action="" method="POST">
+                            <form action="{% pageurl page %}" method="POST" role="form">
                                 {% csrf_token %}
                                 {% for field in form.visible_fields %}
                                     <div class="form-group">
@@ -155,9 +155,10 @@
                                {% endfor %}
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-primary" data-toggle="modal" data-target="#successModal" type="button">Send Now</button>
+                                        <input type="submit" value="Send Now" class="btn btn-primary">
                                     </div>
                                 </div>
+                            </form>    
                         </div>
                     </div>
                 </div>

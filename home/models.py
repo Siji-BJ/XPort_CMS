@@ -153,7 +153,7 @@ class HomePage(AbstractEmailForm):
     )
     intro =  models.CharField(blank=True,max_length=250)
     thank_you_text = RichTextField(blank=True)
-    content_panels = AbstractEmailForm.content_panels + [
+    content_panels = Page.content_panels + [
         ImageChooserPanel(
             'image',heading="Home Page"),
         MultiFieldPanel([
@@ -192,14 +192,6 @@ class HomePage(AbstractEmailForm):
             FieldPanel('contact_us_title'),
             FieldPanel('intro'),
             InlinePanel('form_fields', label="Form fields"),
-            FieldPanel('thank_you_text', classname="full"),
-            MultiFieldPanel([
-                FieldRowPanel([
-                    FieldPanel('from_address', classname="col6"),
-                    FieldPanel('to_address', classname="col6"),
-                ]),
-                FieldPanel('subject'),
-            ], "Email")
         ],"Contact Us")    
     ]
 
