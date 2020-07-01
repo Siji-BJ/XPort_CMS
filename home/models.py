@@ -193,6 +193,13 @@ class HomePage(AbstractEmailForm):
             FieldPanel('intro'),
             FieldPanel('thank_you_text'),
             InlinePanel('form_fields', label="Form fields"),
+                MultiFieldPanel([
+                FieldRowPanel([
+                    FieldPanel('from_address', classname="col6"),
+                    FieldPanel('to_address', classname="col6"),
+                ]),
+                FieldPanel("subject"),
+            ], heading="Email Settings"),
         ],"Contact Us")    
     ]
 
