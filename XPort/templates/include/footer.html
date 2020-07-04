@@ -6,6 +6,11 @@
         <div class="row">
             <div class="col-md-4 col-12">
                 {% image navigation.logo max-1200x1200 %}
+                {% if footer.xport_description %}
+                    <div class="text-white mt-4">
+                        {{footer.xport_description|richtext}}
+                    </div>  
+                {% endif %}      
             </div>
             <div class="col-md-4 col-12">
                 <ul>
