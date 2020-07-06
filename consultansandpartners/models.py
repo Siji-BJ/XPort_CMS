@@ -16,7 +16,7 @@ class ConsultansAndPartners(Page):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Image in header'
+        help_text = 'Landscape mode only; Approximate dimensions: 1440 px (width) x 360 px (height)'
     )
     consultans_Partners_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -24,6 +24,7 @@ class ConsultansAndPartners(Page):
         blank = True,
         on_delete= models.SET_NULL,
         related_name= '+',
+        help_text = 'Approximate dimension: 465 px (width) x 425 px (height)'
     )
     consultans_Partners_body = RichTextField(
         null=True,
@@ -50,11 +51,15 @@ class ConsultansAndPartners(Page):
         blank = True,
         on_delete= models.SET_NULL,
         related_name= '+',
+        help_text = 'Approximate dimension: 400 px (width) x 500 px (height)'
     )
     content_panels = Page.content_panels + [
-        ImageChooserPanel('header_image', heading= 'Header Image'),
-        ImageChooserPanel('consultans_Partners_image'),
+        MultiFieldPanel([
+                ImageChooserPanel('header_image'),
+        ], heading = "Banner section"),
+        MultiFieldPanel([ImageChooserPanel('consultans_Partners_image'),
         FieldPanel('consultans_Partners_body',classname='full'), 
+        ], heading = "Intro" ),     
         MultiFieldPanel([ 
             FieldPanel('idp_program_title',classname='full'),  
             FieldPanel('idp_program_body',classname='full'),

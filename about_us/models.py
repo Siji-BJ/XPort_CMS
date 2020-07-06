@@ -12,6 +12,7 @@ class AboutUsPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Landscape mode only; Approximate dimension: 1440 px (width) x 360 px (height)'
     )
     history_title = models.CharField(
         null=True,
@@ -32,6 +33,7 @@ class AboutUsPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Approximate dimension: 440 px (width) x 540 px (height)'
     )
     body_title = models.CharField(
         null=True,
@@ -65,8 +67,10 @@ class AboutUsPage(Page):
     )
     
     
-    content_panels = Page.content_panels + [    
-            ImageChooserPanel('image'),
+    content_panels = Page.content_panels + [   
+            MultiFieldPanel([
+                ImageChooserPanel('image'),
+            ], heading = "Banner section"),
             MultiFieldPanel([              
                 FieldPanel('history_title'),
                 FieldPanel('main_text'),
@@ -103,7 +107,9 @@ class Photo(models.Model):
     page = ParentalKey(AboutUsPage, on_delete=models.CASCADE, related_name='photo')
     gallery_image = models.ForeignKey(
         'wagtailimages.Image', null=True, blank=True,
-        on_delete=models.SET_NULL, related_name='+'
+        on_delete=models.SET_NULL, related_name='+',
+        help_text = 'Approximate dimension: 95 px (width) x 90 px (height)'
+        
     )
     caption = models.TextField(
         null=True,
@@ -118,7 +124,8 @@ class Team(models.Model):
     page = ParentalKey(AboutUsPage, on_delete=models.CASCADE, related_name='team')
     photo = models.ForeignKey(
         'wagtailimages.Image', null=True, blank=True,
-        on_delete=models.SET_NULL, related_name='+'
+        on_delete=models.SET_NULL, related_name='+',
+        help_text = 'Approximate dimension: 300 px (width) x 300 px (height)'
     )
     name = models.TextField(
         null=True,

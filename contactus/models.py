@@ -17,10 +17,12 @@ class ContactUsPage(Page):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Image in header'
+        help_text = 'Landscape mode only; Approximate dimensions: 1440 px (width) x 360 px (height)'
     )
     content_panels = Page.content_panels + [
-        ImageChooserPanel('header_image', heading= 'Header Image'),
+        MultiFieldPanel([
+                ImageChooserPanel('header_image'),
+            ], heading = "Banner section"),
         MultiFieldPanel([
             InlinePanel('contents',label='Details')
         ], heading= 'Details'),

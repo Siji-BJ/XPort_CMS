@@ -12,6 +12,7 @@ class OperationsManagementPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Landscape mode only; Approximate dimensions: 1440 px (width) x 360 px (height)'
     )
     operations_title = models.TextField(
         null=True,
@@ -39,7 +40,8 @@ class Management1(models.Model):
     )
     pic1 = models.ForeignKey(
         'wagtailimages.Image', null=True, blank=True,
-        on_delete=models.SET_NULL, related_name='+'
+        on_delete=models.SET_NULL, related_name='+',
+        help_text = 'Approximate dimension: 510 px (width) x 410 px (height)'
     )
     content1 = models.TextField(
         null=True,
@@ -51,7 +53,8 @@ class Management1(models.Model):
     )
     pic2 = models.ForeignKey(
         'wagtailimages.Image', null=True, blank=True,
-        on_delete=models.SET_NULL, related_name='+'
+        on_delete=models.SET_NULL, related_name='+',
+        help_text = 'Approximate dimension: 510 px (width) x 410 px (height)'
     )
     content2 = models.TextField(
         null=True,

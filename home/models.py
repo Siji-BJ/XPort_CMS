@@ -19,14 +19,15 @@ class HomePage(AbstractEmailForm):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Homepage image'
+        help_text='Landscape mode only; Approximate dimension: 1440 px (width) x 640 px (height)'
     )
+
     vision_title = models.CharField(
         null=True,
         blank=False,
         default='Vision',
         max_length=100,
-        help_text='Vision'
+        help_text='Title section'
     )
     vision_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -34,20 +35,20 @@ class HomePage(AbstractEmailForm):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Vision image'
+        help_text='PNG file with approximate dimension 137 px (width) x 137 px (height)'
     )
     vision_text = RichTextField(
         null=True,
         blank=False,
         default=' ',
         max_length=400,
-        help_text='Write vision'
+        help_text='Text to display Vision'
     )
     mission_title = models.CharField(
         blank=False,
         default='Mission',
         max_length=250,
-        help_text='Mission title'
+        help_text='Title section'
     )
     mission_list_label = models.ForeignKey(
         'wagtailimages.Image',
@@ -55,7 +56,7 @@ class HomePage(AbstractEmailForm):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='List label'
+        help_text='PNG file with approximate dimension 17 px (width) x 13 px (height)'
     )
     objectives_title = models.CharField(
         blank=False,
@@ -69,7 +70,7 @@ class HomePage(AbstractEmailForm):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Background Image Of Objectives Section'
+        help_text='PNG file with approximate dimension 1440 px (width) x 800 px (height)'
     )
     objectives_side_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -77,13 +78,13 @@ class HomePage(AbstractEmailForm):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Image displayed in the right side of objectives section'
+        help_text='PNG file with approximate dimension 670 px (width) x 560 px (height)'
     )
     usp_title = models.CharField(
         blank=False,
         default='Our USP',
         max_length=250,
-        help_text='USP section title'
+        help_text='Title section'
     )
     usp_side_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -91,7 +92,7 @@ class HomePage(AbstractEmailForm):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Image to be displayed inside USP secton'
+        help_text='PNG file with approximate dimension 410 px (width) x 570 px (height)'
     )
     contact_us_button_text = models.CharField(
         blank=True,
@@ -105,7 +106,7 @@ class HomePage(AbstractEmailForm):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Arrow displayed inside the contact us button '
+        help_text='Arrow displayed inside the contact us button.'
     )
     primary_support_item_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -113,7 +114,7 @@ class HomePage(AbstractEmailForm):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Image diplayed in the left sideof support section '
+        help_text='Image diplayed on the left side of support section. Use PNG file with approximate dimension 360 px (width) x 580 px (height) '
     )
     support_title = models.CharField(
         blank=False,
@@ -131,7 +132,7 @@ class HomePage(AbstractEmailForm):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Background image of support Text '
+        help_text='Background image of support text. Use PNG file with approximate dimension 360 px (width) x 580 px (height)'
     )
     download_image_for_brochure = models.ForeignKey(
         'wagtailimages.Image',
@@ -139,7 +140,7 @@ class HomePage(AbstractEmailForm):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Download image displayed near brochure '
+        help_text='Download icon for brochure. Use PNG file with approximate dimension 26 px (width) x 26 px (height) '
     )
     download_text_with_brochure = models.CharField(
         blank=True,
@@ -154,8 +155,9 @@ class HomePage(AbstractEmailForm):
     intro =  models.CharField(blank=True,max_length=250)
     thank_you_text = models.CharField(blank=False,default='Thankyou. Your response has been submitted successfully.',max_length=2300)
     content_panels = AbstractEmailForm.content_panels + [
-        ImageChooserPanel(
-            'image',heading="Home Page"),
+        MultiFieldPanel([
+            ImageChooserPanel('image',heading="Home Page"),
+            ], heading = "Main home page"),       
         MultiFieldPanel([
             FieldPanel('vision_title', classname="full"),
             ImageChooserPanel('vision_image'),
@@ -222,7 +224,7 @@ class Objective(Orderable):
         blank=False,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Images of Objectives'
+        help_text='PNG file with approximate dimension 52 px (width) x 54 px (height)'
     )
     panels = [
         FieldPanel('objective_text'),
