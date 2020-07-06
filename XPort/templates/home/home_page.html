@@ -121,9 +121,9 @@
                                         <span class="download-arrow-img-holder">{% image page.download_image_for_brochure fill-200x200%}</span>
                                     {%endif%}
                                     <div class="media-body">
-                                        {%if page.download_text_with_brochure_%}
-                                            <h5 class="mt-0">{{page.download_text_with_brochure}} </h5>
-                                        {%endif%}
+                                        {% if page.download_text_with_brochure %}
+                                            <h5 class="mt-0">{{page.download_text_with_brochure }} </h5>
+                                        {% endif %}
                                         <p>{{item.brochure_name}}</p>
                                     </div>
                                 </div>
@@ -155,10 +155,10 @@
                                {% endfor %}
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input type="submit" value="Send Now" class="btn btn-primary" data-toggle="modal" data-target="#successModal" type="button">
+                                        <input type="submit" value="Send Now" class="btn btn-primary">
                                     </div>
                                 </div>
-                            </form>  
+                            </form>    
                         </div>
                     </div>
                 </div>

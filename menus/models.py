@@ -1,4 +1,5 @@
 from django.db import models
+from wagtail.core.fields import RichTextField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from django_extensions.db.fields import AutoSlugField
 from modelcluster.fields import ParentalKey
@@ -129,9 +130,16 @@ class Menu(ClusterableModel):
 
 @register_snippet
 class Footer(ClusterableModel):
+    xport_description = RichTextField(
+        null=True,
+        blank=True,
+        max_length=1000,
+        help_text='Short description displayed below the logo in footer'
+    )
     title = models.CharField(max_length=150)
     panels = [
         MultiFieldPanel([
+            FieldPanel('xport_description'),
             FieldPanel('title'),
             InlinePanel('enquiry')
         ], heading= 'Enquiry')

@@ -6,6 +6,11 @@
         <div class="row">
             <div class="col-md-4 col-12">
                 {% image navigation.logo max-1200x1200 %}
+                {% if footer.xport_description %}
+                    <div class="text-white mt-4">
+                        {{footer.xport_description|richtext}}
+                    </div>  
+                {% endif %}      
             </div>
             <div class="col-md-4 col-12">
                 <ul>
@@ -31,18 +36,3 @@
         </div>
     </div>
 </section>
-<div class="footer-bottom">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-12">
-                <p class="footer-content mb-0">2019. All right reserved</p>
-            </div>
-            <div class="col-md-4 col-12">
-                
-            </div>
-            <div class="col-md-4 col-12 app-enquiry-holder text-right">
-                <p class="footer-content mb-0">Terms &amp; conditions | Privacy Policy</p>
-            </div>
-        </div>
-    </div>
-</div>

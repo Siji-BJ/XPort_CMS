@@ -2324,7 +2324,6 @@ b {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #F7B945;
   padding-left: 0;
   height: 50px;
   -webkit-box-align: center;
@@ -2334,6 +2333,7 @@ b {
 
 @media (max-width: 767px) {
   .footer-bottom ul {
+    background: #F7B945;
     margin-top: 17px;
     height: 70px;
     padding: 0 30px;
@@ -2342,6 +2342,7 @@ b {
 
 .footer-bottom ul li {
   list-style: none;
+  background: #F7B945;
   width: 25%;
   text-align: center;
   height: 100%;

@@ -1,0 +1,32 @@
+{% load menus_tags  %}
+{% get_footer %}
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <p class="footer-content mb-0">2019. All right reserved </p>
+            </div>
+            <div class="col-md-4 col-12">
+                {% if settings.site_settings.SocialMediaSettings.facebook or settings.site_settings.SocialMediaSettings.linkedIn or settings.site_settings.SocialMediaSettings.twitter or settings.site_settings.SocialMediaSettings.youtube%}
+                    <ul class="mb-0">
+                        {% if  settings.site_settings.SocialMediaSettings.facebook %}
+                            <li><a href=" {{ settings.site_settings.SocialMediaSettings.facebook }} "><i class="fa fa-facebook-official icon" aria-hidden="true"></i></a></li>
+                        {% endif %}
+                        {% if  settings.site_settings.SocialMediaSettings.linkedIn %}
+                            <li><a href="{{ settings.site_settings.SocialMediaSettings.linkedIn }}"><i class="fa fa-linkedin icon"></i></a></li>
+                        {% endif %}
+                        {% if  settings.site_settings.SocialMediaSettings.twitter %}
+                            <li><a href="{{ settings.site_settings.SocialMediaSettings.twitter }}"><i class="fa fa-twitter icon"></i></a></li>
+                        {% endif %}
+                        {% if  settings.site_settings.SocialMediaSettings.youtube %}
+                            <li><a href="{{ settings.site_settings.SocialMediaSettings.youtube }}"><i class="fa fa-youtube-play icon"></i></a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}    
+            </div>
+            <div class="col-md-4 col-12 app-enquiry-holder text-right">
+                <p class="footer-content mb-0">Terms & conditions  |  Privacy Policy</p>
+            </div>
+        </div>
+    </div>
+</div>
