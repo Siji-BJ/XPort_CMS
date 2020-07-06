@@ -174,7 +174,7 @@ b {
   .main-banner-container .content-block {
     height: 100%;
   }
-   .container {
+  .main-banner-container .content-block .container {
     height: 100%;
   }
 }
@@ -433,7 +433,6 @@ b {
 
  .navbar .navbar-collapse .navbar-nav:last-child {
   margin-right: 0;
-  position: relative;
 }
 
 .navbar .navbar-collapse .navbar-nav .nav-link {
@@ -3463,10 +3462,10 @@ button.slick-prev:hover {
   top: 8px;
 }
 
-
 .app-l-about-us {
-  margin-top: 360px;
+  margin: 210px 0 0 0;
   background: #fff;
+  position: relative;
   z-index: 9;
   padding: 0 0 37px 0;
 }
@@ -3474,13 +3473,14 @@ button.slick-prev:hover {
 .app-l-about-us h1 {
   margin: 56px 0 18px 0;
   padding: 0;
- 
+  color: #4C5564;
   font-weight: 500;
   font-size: 28px;
   line-height: 38px;
   display: inline-block;
   width: 100%;
 }
+
 
 @media (max-width: 767px) {
   .app-l-about-us h1 {
@@ -3501,6 +3501,11 @@ button.slick-prev:hover {
   font-weight: 500;
   font-size: 22px;
   line-height: 37px;
+}
+
+.app-l-about-us img {
+  margin-top: 40px;
+  width: 100%;
 }
 
 .app-l-about-us .majority-containerized {
