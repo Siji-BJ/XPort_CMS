@@ -74,6 +74,7 @@ b {
 
 .navbar-light .navbar-toggler-icon {
   height: 22px;
+  background-image: url(../assets/img/portfolio/fullsize/hamburger.svg);
 }
 
 @media (max-width: 767px) {
