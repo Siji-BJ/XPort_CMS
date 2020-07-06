@@ -13,6 +13,7 @@ class IndustryDirectionsPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Landscape mode only; Approximate dimension: 1440 px (width) x 360 px (height)'
     )
     body_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -20,6 +21,7 @@ class IndustryDirectionsPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Approximate dimension: 380 px (width) x 250 px (height)'
     )
     body_title = models.CharField(
         null=True,
@@ -40,6 +42,7 @@ class IndustryDirectionsPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Approximate dimension: 490 px (width) x 390 px (height)'
     )
     card_title = models.CharField(
         null=True,
@@ -59,19 +62,13 @@ class IndustryDirectionsPage(Page):
         null=True,
         blank=True,
     )
-    chart_background = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-    )
     chart_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Approximate dimension: 570 px (width) x 500 px (height)'
     )
     chart_title = models.CharField(
         null=True,
@@ -81,7 +78,9 @@ class IndustryDirectionsPage(Page):
     
     
     content_panels = Page.content_panels + [    
-            ImageChooserPanel('image'),
+            MultiFieldPanel([
+                ImageChooserPanel('image'),
+            ], heading = "Banner section"),
             MultiFieldPanel([
                 ImageChooserPanel('body_image'),
                 FieldPanel('body_title'),
@@ -89,7 +88,6 @@ class IndustryDirectionsPage(Page):
                 FieldPanel('body_text_2'),
             ], heading = "Body section"),
             MultiFieldPanel([
-                ImageChooserPanel('chart_background'),
                 ImageChooserPanel('chart_image'),
                 FieldPanel('chart_title'),
             ], heading = "Growth chart section"),
@@ -114,6 +112,7 @@ class Points(models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
+        help_text = 'Approximate dimension: 120 px (width) x 120 px (height)'
     )
     point_title = models.CharField(
         null=True,
