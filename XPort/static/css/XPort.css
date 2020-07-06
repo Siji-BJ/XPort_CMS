@@ -157,12 +157,6 @@ b {
   height: 100%;
 }
 
-@media (max-width: 767px) {
-  .main-banner-container img {
-    width: 70px;
-  }
-}
-
 .main-banner-container .content-block {
   position: absolute;
   top: 0;
