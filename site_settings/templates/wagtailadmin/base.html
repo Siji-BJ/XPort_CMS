@@ -1,0 +1,7 @@
+{% extends "wagtailadmin/base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% load static %}
+
+{% block branding_logo %}
+<img src="{% static 'assets/logo.png' %}" alt="XPort Logo" width="80" />
+{% endblock %}
