@@ -3478,6 +3478,7 @@ button.slick-prev:hover {
 
 @media (max-width: 767px) {
   .app-l-about-us h1 {
+    padding-left: 0px;
     margin: 32px 0 16px 0;
     font-weight: 600;
     font-size: 24px;
@@ -3485,6 +3486,7 @@ button.slick-prev:hover {
 }
 
 .app-l-about-us p {
+  padding-left: 15px;
   color: #3A414E;
   font-size: 16px;
   line-height: 28px;
@@ -3498,7 +3500,6 @@ button.slick-prev:hover {
 }
 
 .app-l-about-us img {
-  margin-top: 40px;
   width: 100%;
 }
 
@@ -4119,6 +4120,25 @@ button.slick-prev:hover {
     margin-right: auto;
     margin-left: auto;
 
+}
+@media (max-width: 767px) {
+  .title {
+    margin-top: -65px;
+    max-width: 1184px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.title{
+  max-width: 1184px;
+  width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .app-l-technology-landscape-block {

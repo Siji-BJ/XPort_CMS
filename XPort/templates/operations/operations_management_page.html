@@ -40,7 +40,8 @@
             </div>          
             <div class="row mb-56 flex__direction">
                 <div class="col-lg-6">
-                    {% image item.pic2 max-900x700 %}
+                    {% image item.pic2 max-900x700 as image %}
+                    <img class="coe-img" src="{{image.url}}">
                 </div>
                 <div class="col-lg-6">
                     <h1 class="">{{item.title2}}</h1>
