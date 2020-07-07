@@ -33,7 +33,12 @@
                     <div class="row">
                         <div class="col-md-6 pt-24 pl-0 pl-15-sm pr-5">
                             <div class="media">
-                                <figure class="figure text-center">{% image page.vision_image fill-200x200-c100 %}</figure>
+                                <figure class="figure text-center">
+                                    
+                                    <div class="app-d-none-xs">
+                                        {% image page.vision_image fill-200x200-c100 %}
+                                    </div>
+                                    </figure>
                                
                                 <div class="media-body">
                                   <h5 class="mt-0">{{page.vision_title}}</h5>

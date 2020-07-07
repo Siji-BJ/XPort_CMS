@@ -16,12 +16,15 @@
                             <div class="row">
                                 {%if page.consultans_Partners_body or page.consultans_Partners_image %}
                                     <div class="col-lg-6">
+                                        <div class = "title">
                                         {{page.consultans_Partners_body|richtext}}
+                                        </div>
                                     </div>
                                 {%endif%}
                                 {%if page.consultans_Partners_body or page.consultans_Partners_image %}
                                     <div class="col-lg-6">
-                                        {% image page.consultans_Partners_image width-500 height-500 %}
+                                        {% image page.consultans_Partners_image width-500 height-500 as image %}
+                                        <img class="coe-img w-auto" src="{{image.url}}">                                       
                                     </div>
                                 {%endif%}
                             </div>
@@ -29,7 +32,8 @@
                         <div class="row flex__direction app-l-idp-prg">
                             {% if page.idp_program_image %}
                                 <div class="col-lg-6 mt-0">
-                                    {% image page.idp_program_image max-1400x1400 %}
+                                    {% image page.idp_program_image max-1400x1400 as image%}
+                                    <img class="coe-img w-auto" src="{{image.url}}">
                                 </div>
                             {% endif %}
                             {% if page.idp_program_title or page.idp_program_body %}

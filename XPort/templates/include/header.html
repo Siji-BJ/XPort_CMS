@@ -8,7 +8,8 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             {% if navigation.logo %}
-                <a class="navbar-brand" href="#">{% image navigation.logo max-1200x1200 %}</a>
+                <a class="navbar-brand" href="#">
+                    {% image navigation.logo max-1200x1200 %}</a>
             {% endif %}     
             <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown" role="button"
                 aria-expanded="false" aria-controls="navbarNavDropdown">
@@ -46,6 +47,41 @@
                             
                         {% endfor %}
                     </ul>
+                    <ul class="navbar-nav mobile">
+                        <button class="close-icon" data-toggle="collapse" href="#navbarNavDropdown" role="button"
+                        aria-expanded="false" aria-controls="navbarNavDropdown">
+                            <img src="{% static 'assets/img/portfolio/fullsize/close-white.png' %}">
+                        </button>
+                        {% for item in navigation.menu_items.all %}
+                            {% if item.sub_menu.all %}                   
+                                <li class="nav-item dropdown" style="margin-top: 14px;">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.title}}</a>                       
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
+                                        {% for sub in item.sub_menu.all %}            
+                                            <a class="dropdown-item" href="{{ sub.link }}">{{sub.page_title}}</a>  
+                                        {% endfor %} 
+                                    </div>                     
+                                </li>  
+                            {% elif item.title == 'Contact Us'%}
+                                <li class="nav-item">
+                                    <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
+                                        <button class="btn btn-primary">
+                                            Contact Us
+                                        </button>
+                                    </a>
+                                </li>               
+                            {% else %}
+                                <li class="nav-item mt-3 ml-3 mr-4">
+                                    <a class="nav-link " href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>
+                                        {{ item.title }}
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            
+                        {% endfor %}
+                        
+                    </ul>
                 </div>
             {%endif%}    
         </nav>
@@ -57,7 +93,7 @@
         {% if navigation.logo %}
             <a class="navbar-brand" href="#">{% image navigation.logo max-1200x1200 %}</a>
         {% endif %}    
-            <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown1" role="button" aria-expanded="false" aria-controls="navbarNavDropdown1">
+            <button class="navbar-toggler" data-toggle="collapse" href="#navbarNavDropdown" role="button" aria-expanded="false" aria-controls="navbarNavDropdown">
                 <span class="navbar-toggler-icon"></span>
             </button>
     {% if navigation.menu_items %}
@@ -90,6 +126,7 @@
                         {% endif %}                
                     {% endfor %}
                 </ul>
+                
         </div>
     {% endif %}    
         </nav>
