@@ -106,8 +106,10 @@
                                 </div>
                                 {% for item in page.point.all %}
                                     <div class="row app-l-industry-goals">
-                                        <div class="col-12 col-lg-2 text-center">
-                                            {% image item.point_image max-100x150 %}
+                                        <div class="col-12 col-lg-2 text-center">                                    
+                                        {% image item.point_image max-100x150 as image %}                                       
+                                        <img src="{{image.url}}" class="img-fluid"
+                                        alt="Responsive image">
                                         </div>
                                         <div class="col-12 col-lg-10 align-items-center">
                                             <h4>{{item.point_title}}</h4>
